@@ -11,6 +11,7 @@ body {
 /* --- Top Section (Container for Video and Content) --- */
 .top-section{
     background-image: url(https://missionsafehouse.vercel.app/images/img2.png);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center; /* Centers content vertically */
     justify-content: center; /* Centers content horizontally */
