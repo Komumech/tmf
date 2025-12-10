@@ -1,7 +1,4 @@
-:root{
-    --green: #3D893B;
-    --grey: #423f3f;
-}
+
 
 /* --- Base Body Style (Required to remove default margins) --- */
 body {
@@ -76,21 +73,8 @@ body {
     margin-right: auto;
 }
 
-/* --- CTA Button Styles --- */
-.cta-button {
-    display: inline-block;
-    padding: 16px 40px; 
-    background-color: var(--green);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(61, 137, 59, 0.4); 
-}
-
-.cta-button:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px rgba(61, 137, 59, 0.6);
-}
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3.2rem; /* A full implementation would require a hamburger menu */
+    }
