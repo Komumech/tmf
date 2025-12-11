@@ -1,58 +1,191 @@
+/* --- CSS Variables --- */
+:root {
+    /* Base Colors from HTML */
+    --green: #479744; 
+    --grey: #423f3f;
+    --white: #ffffff;
+    --light-grey: #f4f4f4;
 
+    /* Extended/Component Colors */
+    --overlay-color: #0707076c; 
+    --cream: #F5DEB3; /* Matching the button background color */
 
-/* --- Base Reset and Font --- */
+    /* Google-Inspired Button Colors */
+    --text-color-dark: #3c4043; /* Adjusted from #000000 for softer text on white */
+    --border-color-light: #dadce0;
+}
+
+/* ------------------------------------------------ */
+/* ---------- Global & Scrollbar Styles ----------- */
+/* ------------------------------------------------ */
+
+/* Webkit (Chrome, Safari, newer Edge, Opera) Scrollbar */
+::-webkit-scrollbar {
+    width: 6px; 
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-grey); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cream); 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e0d0b0; 
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cream) var(--light-grey); 
+}
+
+/* --- Base Body Style --- */
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 200vh;
     background-color: var(--white);
     color: var(--grey);
     line-height: 1.6;
 }
 
+
+/* ------------------------------------------------ */
+/* ----------------- Header & Nav ----------------- */
+/* ------------------------------------------------ */
+
+/* --- Navbar Fix (Essential for Curved Edges) --- */
+.navbar {
+    position: relative; 
+    overflow: hidden; /* Clips the progress bar edges to match navbar curves */
+    /* Add other sticky/fixed styles here if applicable */
+}
+
+/* Navbar Scrolled State (Blur Effect) */
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    /* overflow: hidden; is already defined above */
 }
 
-/* --- Hero Content Styling --- */
+/* --- Reading Progress Bar Style --- */
+.reading-progress-bar {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    height: 3px; 
+    background-color: var(--green);
+    width: 0%; 
+    z-index: 1001; 
+    transition: width 0.1s linear; 
+}
+
+
+/* --- Top Section (Blurred Background) --- */
+.top-section {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    color: white; 
+    text-align: center;
+    background-image: none;
+    backdrop-filter: none;
+}
+
+/* Pseudo-Element for Blurred Background Image and Color Overlay */
+.top-section::before {
+    content: ''; 
+    position: absolute;
+    top: -10px; 
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    
+    background-image: url(https://missionsafehouse.vercel.app/images/img2.png);
+    background-size: cover; 
+    background-position: center; /* Default position for large screens */
+    background-repeat: no-repeat;
+    
+    background-color: var(--overlay-color); 
+    background-blend-mode: overlay; 
+    
+    filter: blur(2px);
+    
+    z-index: 1; 
+}
+
+/* --- Hero Content --- */
+.hero-content {
+    position: relative; 
+    z-index: 2; 
+    padding-top: 2rem;
+    max-width: 900px;
+}
+
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 4rem; 
+    font-weight: 800; 
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Added from your provided code */
+}
+
+.hero-content .highlight {
+    color: var(--green); 
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 1.35rem; 
+    font-weight: 300; 
     margin-bottom: 2rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Added from your provided code */
+}
+
+/* --- Call to Action Button (Google-Inspired Design) --- */
+.cta-button {
+    display: inline-block;
+    padding: 10px 24px; 
+    
+    background-color: var(--cream); 
+    color: var(--text-color-dark); 
+    text-decoration: none;
+    font-weight: 500; 
+    font-size: 1rem;
+    
+    border: 1px solid var(--border-color-light); 
+    border-radius: 4px; 
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); 
+
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    color: white;
+    box-shadow: 0 2px 3px 0 rgba(60, 64, 67, 0.3), 0 3px 6px 2px rgba(60, 64, 67, 0.15); 
+    background-color: transparent;
+    border: 2px var(--cream) solid;
 }
 
 
+/* ------------------------------------------------ */
+/* ------------- Main Content Sections ------------ */
+/* ------------------------------------------------ */
 
-/* --- Content Section --- */
-.content-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: var(--light-grey);
-}
-
-.content-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--grey);
-}
-
-.content-section p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #666;
-}
-.line{
+/* --- Horizontal Line Divider --- */
+.line {
     width: 100vw;
     height: 10px;
     display: flex;
@@ -70,24 +203,128 @@ body {
 .grey{
     background-color: var(--grey);
 }
-/* --- Responsive Design --- */
+
+/* --- Content Section (Desktop/Large Screen) --- */
+.content-section {
+    padding-top: 5rem;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Allows it to overlap/sit next to other main content */
+    width: 90vw;
+    height: 100vh;
+    margin-left: 5vw; /* Centering the 90vw width element */
+}
+.head{
+    padding-right: 3rem;
+}
+.content{
+    padding-left: 3rem;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--grey);
+}
+
+.content p {
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.5rem;
+}
+
+/* Vertical Line Divider */
+.linevr{
+    width: 5px;
+    height: 10rem;
+    display: grid;
+    grid-template-columns: 100%;
+    align-self: center;
+    margin-top: -12rem;
+}
+.colorvr{
+    width: 5px;
+    height: 7rem;
+}
+
+
+/* ------------------------------------------------ */
+/* ----------- Responsive (Mobile/Android) -------- */
+/* ------------------------------------------------ */
+
 @media (max-width: 768px) {
+    
+    /* Hide Nav Links */
     .nav-links {
-        display: none; /* A full implementation would require a hamburger menu */
+        display: none; 
     }
 
+    /* Hero Text Adjustments */
     .hero-content h1 {
         font-size: 2.5rem;
     }
-
     .hero-content p {
         font-size: 1rem;
     }
-
+    
+    /* CTA Button Adjustments */
     .cta-button {
         padding: 12px 25px;
         font-size: 1.4rem;
         font-weight: 400;
+    }
+    
+    /* Background Image Shift for Mobile Viewports */
+    .top-section::before {
+        background-position: 60% center; 
+    }
+
+    /* 💥 Mobile Content Section Overrides (Vertical Stack) 💥 */
+    .content-section {
+        /* Reset positioning/sizing for fluid flow */
+        position: static; 
+        width: 100vw; 
+        height: auto; 
+        
+        /* Stack children vertically */
+        flex-direction: column;
+        margin-left: 0; /* Clear previous margin */
+    }
+    
+    /* Hide Vertical Line */
+    .linevr {
+        transform: rotate(90deg);
+        justify-self: center;
+        position: absolute;
+        height: fit-content;
+        margin-top: -24rem;
+    }
+
+    /* Clear padding/centering for head and content */
+    .head {
+        padding-right: 0; 
+        text-align: center; 
+        margin-bottom: 1rem;
+    }
+    
+    .content {
+        padding-left: 0; 
+        text-align: left; 
+        width: 100%; 
+        max-width: 100%;
+    }
+    .content p{
+        max-width: 90vw;
+        padding-top: 10px;
+        text-align: center;
+
+    }
+    .content-section h2 {
+        font-size: 2rem;
     }
 }
 

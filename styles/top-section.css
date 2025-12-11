@@ -111,7 +111,7 @@ body {
     font-size: 1rem;
     
     /* 2. Border and Shadow */
-    border: 1px solid var(--border-color-light); /* Light gray border */
+    border: 2px solid #F5DEB3; /* Light gray border */
     border-radius: 4px; /* Subtle rounded corners */
     /* Subtle box-shadow for lift */
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); 
