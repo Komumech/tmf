@@ -161,12 +161,14 @@
 }
 
 .circle5 {
-    /* Small circle in Section 3 (White) */
-    width: 7rem;
-    height: 7rem;
-    bottom: 0;
-    left: 10%;
-    animation: abstract-morph 18s ease-in-out infinite alternate;
+    /* Significantly larger circle for Section 3 (White) */
+    width: 25rem;
+    height: 25rem; 
+    opacity: 0.5;
+    top: 20%;      /* Center vertically within the .white-sect */
+    left: 2%;      /* Position it to the left side, behind the text */
+    transform: translateY(-50%); /* Maintain vertical centering */
+    animation: abstract-morph 28s ease-in-out infinite alternate;
 }
 
 
@@ -266,6 +268,12 @@
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--text-color);
+}
+
+/* NEW STYLE: Ensure the text block sits above the large floating circle in the white section */
+.white-sect .sect2-txt {
+    position: relative;
+    z-index: 1; 
 }
 
 /* --- SECTION 3: IMPACT (IMPROVED STYLES) --- */
