@@ -48,14 +48,14 @@
     color: var(--text-color);
     max-width: 39vw;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
     display: block;
     line-height: 1.6;
 }
 
 .large {
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 500;
     font-family: "Raleway", sans-serif;
     display: block;
     padding-bottom: 1.1rem;
@@ -234,6 +234,7 @@
 .sect2 .large{
     font-size: 2.5rem;
     padding-bottom: 1.4rem;
+    font-weight: 500;
 }
 .img2{
     height: 29rem;
@@ -264,7 +265,7 @@
 }
 
 .sect2-undertxt{
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--text-color);
@@ -333,7 +334,155 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* =========================================
+   9. FOOTER STYLES
+   ========================================= */
+.main-footer {
+    background-color: var(--background-color-light); /* Light grey background */
+    color: var(--text-color);
+    padding: 3rem 0;
+    font-family: 'Raleway', sans-serif;
+}
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 10px;
+}
+
+/* --- Logo & Info Column --- */
+.footer-info {
+    flex: 1.5; /* Make the info column wider */
+    padding-right: 40px;
+}
+
+.footer-logo {
+    height: 40px; /* Adjust as needed */
+    margin-bottom: 1rem;
+    filter: grayscale(100%); /* Optional: Make logo grayscale to match professional tone */
+}
+
+.foundation-mission {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 2rem;
+}
+
+/* --- Links & Contact Columns --- */
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+.footer-col h3::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--circle-color);
+    margin-top: 5px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--circle-color);
+}
+
+/* --- Contact Column --- */
+.footer-contact p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact .icon {
+    margin-right: 10px;
+    color: var(--circle-color);
+    width: 15px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+/* --- Social Media --- */
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--circle-color);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   10. FOOTER RESPONSIVENESS
+   ========================================= */
+@media (max-width: 900px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80vw;
+    }
+
+    .footer-col {
+        min-width: 100%;
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+    
+    .footer-info {
+        padding-right: 0;
+    }
+
+    .footer-col h3::after {
+        margin: 5px auto 0 auto; /* Center underline */
+    }
+
+    .footer-links a, .footer-contact p {
+        text-align: center;
+        justify-content: center;
+    }
+}
 /* =========================================
    7. RESPONSIVE FIXES (Sect 1)
    ========================================= */
@@ -428,7 +577,10 @@
     .sect2-headline.is-visible {
         transform: translateY(0);
     }
-
+    
+    .section-padding{
+        margin-top: 0rem;
+    }
     .sect2 .large {
         font-size: 2rem;
     }
