@@ -183,6 +183,23 @@
     justify-content: center;
     padding: 5rem 0; /* Add vertical padding for mobile spacing */
 }
+.grey-sect .cta-btn{
+    margin-left: 3rem;
+}
+
+.white-sect .cta-btn{
+    margin-left: 3rem;
+}
+.white-sect{
+    background-color: transparent;
+    width: 100vw;
+    /* Changed to min-height to allow content to dictate height */
+    min-height: 80vh; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5rem 0; /* Add vertical padding for mobile spacing */
+}
 
 .sect2{
     height: fit-content;
@@ -261,6 +278,12 @@
    8. RESPONSIVE FIXES (Sect 2)
    ========================================= */
 @media (max-width: 900px) {
+    .grey-sect .cta-btn{
+        margin-left: 0;
+    }
+    .white-sect .cta-btn{
+        margin-left: 0;
+    }
     .sect2 {
         /* Stack image and text vertically */
         flex-direction: column; 
