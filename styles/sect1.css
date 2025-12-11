@@ -2,9 +2,11 @@
    1. VARIABLES & SETUP
    ========================================= */
 :root {
-    /* Fixed color for the abstract shapes */
-    --circle-color: #66eeb8;
+    /* Updated color variable */
+    --circle-color: #66eeb8; 
     --text-color: #000000;
+    --background-color-light: rgb(236, 236, 236);
+    --secondary-color: #f7f7f7; /* New: for contrast/stat background */
 }
 
 /* =========================================
@@ -88,59 +90,44 @@
     height: 36rem;
     border-radius: 50%;
     position: relative;
-    z-index: 10; /* Image stays ON TOP */
+    z-index: 10;
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Subtle depth */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 /* =========================================
    4. ABSTRACT ANIMATED CIRCLES
    ========================================= */
-
-/* Common styles for all abstract blobs */
 .circle, .circle2, .circle3 {
     background-color: var(--circle-color) !important;
     position: absolute;
-    z-index: -1; /* Behind the image */
-    
-    /* This creates the smooth morphing performance */
+    z-index: -1; 
     will-change: border-radius, transform;
-    
-    /* Start as a circle */
     border-radius: 50%;
 }
 
-/* --- Circle 1: Top Left - Large Fluid Blob --- */
 .circle {
     width: 12rem;
     height: 12rem;
     top: -2rem;
     left: 10%;
-    
-    /* Animation: 20s cycle, floating and morphing */
     animation: abstract-morph 20s ease-in-out infinite alternate;
 }
 
-/* --- Circle 2: Bottom Center - Medium Fluid Blob --- */
 .circle2 {
     width: 8rem;
     height: 8rem;
     bottom: -2rem;
     left: 20%;
-    
-    /* Animation: Slower (25s), slightly delayed */
     animation: abstract-morph 25s ease-in-out infinite alternate-reverse;
-    animation-delay: -5s; /* Negative delay starts animation mid-way */
+    animation-delay: -5s;
 }
 
-/* --- Circle 3: Left/Middle - Small Active Blob --- */
 .circle3 {
     width: 5rem;
     height: 5rem;
     top: 45%;
     left: 0;
-    
-    /* Animation: Fastest (15s) for more activity */
     animation: abstract-morph 15s ease-in-out infinite;
 }
 
@@ -149,56 +136,49 @@
    ========================================= */
 @keyframes abstract-morph {
     0% {
-        /* Shape 1: Slightly flattened circle */
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         transform: translate(0, 0) rotate(0deg) scale(1);
     }
     33% {
-        /* Shape 2: Stretched diagonally */
         border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
         transform: translate(-20px, 10px) rotate(120deg) scale(1.1);
     }
     66% {
-        /* Shape 3: Squashed vertically */
         border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
         transform: translate(20px, -10px) rotate(240deg) scale(0.95);
     }
     100% {
-        /* Shape 4: Irregular blob */
         border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
         transform: translate(0, 0) rotate(360deg) scale(1);
     }
 }
 
 /* =========================================
-   6. SECTION 2 STYLES
+   6. SECTION 2 & 3 STYLES
    ========================================= */
 .grey-sect{
-    background-color: rgb(236, 236, 236);
+    background-color: var(--background-color-light);
     width: 100vw;
-    /* Changed to min-height to allow content to dictate height */
     min-height: 80vh; 
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 5rem 0; /* Add vertical padding for mobile spacing */
+    padding: 5rem 0;
 }
 .grey-sect .cta-btn{
     margin-left: 3rem;
 }
-
 .white-sect .cta-btn{
     margin-left: 3rem;
 }
 .white-sect{
     background-color: transparent;
     width: 100vw;
-    /* Changed to min-height to allow content to dictate height */
     min-height: 80vh; 
     align-items: center;
     display: flex;
     justify-content: center;
-    padding: 5rem 0; /* Add vertical padding for mobile spacing */
+    padding: 5rem 0; 
 }
 
 .sect2{
@@ -206,7 +186,6 @@
     align-items: center;
     display: flex;
     width: 80vw;
-    /* Spacing between image and text */
     gap: 4rem; 
 }
 .sect2 .large{
@@ -216,12 +195,10 @@
 .img2{
     height: 29rem;
     border-radius: 50%;
-    /* Ensures image does not distort on flex shrink */
     flex-shrink: 0; 
 }
 .sect2-headline{
     max-width: 40vw;
-    /* Removed padding-left: 4rem; to let gap handle spacing */
 }
 .sect2-undertxt{
     font-weight: 300;
@@ -229,53 +206,64 @@
     line-height: 1.6;
     color: var(--text-color);
 }
+
+/* --- SECTION 3: IMPACT (IMPROVED STYLES) --- */
 .sect3{
     background-color: var(--circle-color);
     width: 100vw;
     height: fit-content;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
+    padding: 4rem 0;
 }
 .sect3-cont{
     display: flex;
-    min-height: 100px;
+    justify-content: space-between; 
     align-items: center;
-    justify-content: space-around;
     width: 90vw;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    justify-self: center;
+    max-width: 1200px;
 }
 .sect3-txt{
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    flex-shrink: 0;
+    padding-right: 2rem;
 }
 .impact{
-    padding-left: 3rem;
+    display: flex;
+    justify-content: center;
+    flex: 1;
 }
 .imapact1{
-    min-height: 90px;
-    display: grid;
-    grid-template-columns: 100%;
-    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
 }
 .impact-num{
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    font-weight: 700;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 0.5rem;
+    line-height: 1;
+    color: var(--text-color);
 }
 .impact-txt{
-    background-color: white;
-    border: 1px solid black;
-    font-size: 1.2rem;
-    max-width: 130px;
+    background-color: var(--secondary-color);
+    border: none;
+    font-size: 1rem;
+    max-width: 100%;
     border-radius: 30px;
-    padding: 10px 32px;
+    padding: 10px 20px;
     font-weight: 500;
-    align-items: center;
     text-align: center;
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+
 /* =========================================
    7. RESPONSIVE FIXES (Sect 1)
    ========================================= */
@@ -285,10 +273,19 @@
         height: auto;
         margin-top: 8rem;
         padding-bottom: 2rem;
-        text-align: center; /* Center content when stacked */
+        text-align: center;
     }
     
+    /* === MOBILE REORDERING (Image before Text) === */
+    .image {
+        order: -1; /* Image comes first (top) */
+        width: 100%;
+        margin-top: 0; 
+        margin-bottom: 3rem; /* Space below the image */
+    }
+
     .headline {
+        order: 1; /* Headline comes second (bottom) */
         margin-top: 0;
         margin-bottom: 3rem;
         padding: 0 20px;
@@ -296,42 +293,32 @@
     
     .headline-txt {
         max-width: 100%;
-        margin: 0 auto; /* Center text block */
+        margin: 0 auto;
     }
     
     .large {
-        font-size: 2.5rem; /* Smaller font size on mobile */
+        font-size: 2.5rem;
     }
 
-    .image {
-        width: 100%;
-        margin-top: 2rem;
-    }
-    
     .top-img {
         height: 20rem;
         width: 20rem; 
         margin-top: 0;
     }
     
-    /* Adjust circle positions for mobile so they don't disappear */
     .circle { width: 8rem; height: 8rem; top: -1rem; left: 5%; }
     .circle2 { width: 5rem; height: 5rem; bottom: -1rem; left: 75%; transform: translateX(-50%); }
-    .circle3 { display: none; } /* Hide smallest circle for simplicity on mobile */
+    .circle3 { display: none; }
 }
 
 /* =========================================
-   8. RESPONSIVE FIXES (Sect 2)
+   8. RESPONSIVE FIXES (Sect 2 & 3)
    ========================================= */
 @media (max-width: 900px) {
-    .grey-sect .cta-btn{
-        margin-left: 0;
-    }
-    .white-sect .cta-btn{
+    .grey-sect .cta-btn, .white-sect .cta-btn{
         margin-left: 0;
     }
     .sect2 {
-        /* Stack image and text vertically */
         flex-direction: column; 
         text-align: center;
         width: 90vw;
@@ -344,7 +331,6 @@
     }
     
     .sect2-headline {
-        /* Allow headline to take full width */
         max-width: 100%; 
         padding-left: 0;
     }
@@ -355,5 +341,30 @@
     
     .sect2-undertxt {
         max-width: 100%;
+    }
+
+    /* --- Sect 3 Mobile Stack --- */
+    .sect3-cont {
+        flex-direction: column;
+        gap: 2rem;
+        width: 80vw;
+    }
+    .sect3-txt {
+        font-size: 1.8rem;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .impact {
+        width: 100%;
+        flex: none;
+    }
+    .imapact1 {
+        padding: 0;
+        width: 100%;
+    }
+    .impact-txt {
+        font-size: 1.1rem;
+        padding: 12px 25px;
     }
 }
