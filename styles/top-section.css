@@ -55,7 +55,7 @@ body {
     /* Image Source and Scaling */
     background-image: url(https://missionsafehouse.vercel.app/images/img2.png);
     background-size: cover; 
-    background-position: center;
+    background-position: center; /* Default position for large screens */
     background-repeat: no-repeat;
     
     /* 💥 The Color Overlay 💥 */
@@ -129,12 +129,20 @@ body {
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    /* Existing style for H1 */
     .hero-content h1 {
         font-size: 3.2rem; 
     }
     
-    /* Example: Adjust button padding on smaller screens if needed */
+    /* Existing style for CTA */
     .cta-button {
         padding: 8px 18px;
+    }
+
+    /* 💥 NEW: Background Image Shift for Mobile Viewports (Android/iOS) 💥 */
+    .top-section::before {
+        /* This overrides the default 'center' setting. 
+           '60% center' means the image shifts 10% to the right from the center (50%) */
+        background-position: 33% center; 
     }
 }
