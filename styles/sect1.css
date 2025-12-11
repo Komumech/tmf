@@ -391,7 +391,8 @@
     .circle2 { width: 5rem; height: 5rem; bottom: -1rem; left: 75%; transform: translateX(-50%); }
     .circle3 { display: none; }
     /* Hide new circles on small screens for clean layout */
-    .circle4, .circle5 { display: none; } 
+    .circle4 { display: none; } 
+    
 }
 
 /* =========================================
