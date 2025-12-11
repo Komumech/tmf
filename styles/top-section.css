@@ -1,36 +1,81 @@
+/* --- CSS Variables --- */
+:root {
+    /* Define your highlight color */
+    --green: #4CAF50; 
+    /* Semi-transparent black overlay: 070707 is near-black, 6c is about 42% opacity */
+    --overlay-color: #0707076c; 
+    /* Google-inspired text color */
+    --text-color-dark: #000000;
+    /* Google-inspired border color */
+    --border-color-light: #dadce0;
+}
 
-
-/* --- Base Body Style (Required to remove default margins) --- */
+/* --- Base Body Style --- */
 body {
     margin: 0;
     padding: 0;
+    /* Using a standard font stack */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     min-height: 200vh;
 }
 
-/* --- Top Section (Container for Video and Content) --- */
-.top-section{
-    background-image: url(https://missionsafehouse.vercel.app/images/img2.png);
-    backdrop-filter: blur(8px);
+/* --- Top Section (Container for Blurred Background and Hero Content) --- */
+.top-section {
+    /* Required to position the content and the pseudo-element */
+    position: relative;
+    
+    /* Center the content */
     display: flex;
     align-items: center; /* Centers content vertically */
     justify-content: center; /* Centers content horizontally */
-    position: relative;
+    
     width: 100vw;
     min-height: 100vh;
     overflow: hidden;
-    color: white;
+    color: white; /* Text color for content */
     text-align: center;
+    
+    /* Remove the conflicting background properties from the main element */
+    background-image: none;
+    backdrop-filter: none;
 }
 
-
+/* --- Pseudo-Element for Blurred Background Image and Color Overlay --- */
+.top-section::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    
+    /* Stretch the pseudo-element to cover the entire .top-section. 
+       A slight negative margin helps cover edges caused by blur artifacts. */
+    top: -10px; 
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    
+    /* Image Source and Scaling */
+    background-image: url(https://missionsafehouse.vercel.app/images/img2.png);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 💥 The Color Overlay 💥 */
+    background-color: var(--overlay-color); 
+    background-blend-mode: overlay; 
+    
+    /* 💥 The Blur Effect 💥 */
+    filter: blur(2px);
+    
+    /* Place it behind the .hero-content */
+    z-index: 1; 
+}
 
 /* --- Hero Content (Text and Button) --- */
 .hero-content {
-    position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
+    /* Ensure content sits above the blurred background */
+    position: relative; 
+    z-index: 2; /* Sits on top of the blurred image and color overlay */
+    padding-top: 2rem;
     max-width: 900px;
-    padding: 0 20px; 
 }
 
 .hero-content h1 {
@@ -47,14 +92,49 @@ body {
 .hero-content p {
     font-size: 1.35rem; 
     font-weight: 300; 
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* --- Call to Action Button (Google-Inspired Design) --- */
+.cta-button {
+    display: inline-block;
+    padding: 10px 24px; /* Slightly adjusted padding for the Google look */
+    
+    /* 1. Base Colors */
+    background-color: #F5DEB3; /* White background */
+    color: var(--text-color-dark); /* Dark gray text for better readability */
+    text-decoration: none;
+    font-weight: 500; /* Medium weight */
+    font-size: 1rem;
+    
+    /* 2. Border and Shadow */
+    border: 1px solid var(--border-color-light); /* Light gray border */
+    border-radius: 4px; /* Subtle rounded corners */
+    /* Subtle box-shadow for lift */
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); 
+
+    /* 3. Transition for Smooth Hover */
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    color: white;
+    box-shadow: 0 2px 3px 0 rgba(60, 64, 67, 0.3), 0 3px 6px 2px rgba(60, 64, 67, 0.15); 
+    background-color: transparent;
+    border: 2px #F5DEB3 solid;
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 3.2rem; /* A full implementation would require a hamburger menu */
+        font-size: 3.2rem; 
     }
+    
+    /* Example: Adjust button padding on smaller screens if needed */
+    .cta-button {
+        padding: 8px 18px;
+    }
+}

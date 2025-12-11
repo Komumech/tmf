@@ -30,23 +30,7 @@ body {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.cta-button {
-    background-color: transparent;
-    color: var(--white);
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: white 2px solid;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
 
-.cta-button:hover {
-    background-color: #0a7346;
-    transform: translateY(-3px);
-}
 
 /* --- Content Section --- */
 .content-section {
@@ -67,7 +51,24 @@ body {
     margin: 0 auto;
     color: #666;
 }
-
+.line{
+    width: 100vw;
+    height: 10px;
+    display: flex;
+}
+.color{
+    width: 50vw;
+    height: 10px;
+}
+.cream{
+    background-color: #F5DEB3;
+}
+.green{
+    background-color: var(--green);
+}
+.grey{
+    background-color: var(--grey);
+}
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .nav-links {
