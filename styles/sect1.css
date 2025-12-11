@@ -338,10 +338,13 @@
    9. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: var(--background-color-light); /* Light grey background */
+    background-color: white; /* Light grey background */
     color: var(--text-color);
     padding: 3rem 0;
     font-family: 'Raleway', sans-serif;
+    width: 100vw;
+    position: relative;
+    bottom: 0px;
 }
 
 .footer-content {
@@ -406,18 +409,21 @@
     list-style: none;
     padding: 0;
 }
-
-.footer-links a {
-    color: var(--text-color);
+.footer-links a{
     text-decoration: none;
-    font-size: 0.95rem;
-    padding: 5px 0;
-    display: block;
-    transition: color 0.3s ease;
+    color: black;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+    margin-left: 30px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
 }
-
-.footer-links a:hover {
-    color: var(--circle-color);
+.footer-links a:hover{
+    color: var(--green);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
 }
 
 /* --- Contact Column --- */
@@ -441,16 +447,20 @@
     margin-top: 1.5rem;
 }
 
-.social-links a {
-    color: var(--text-color);
-    font-size: 1.2rem;
-    margin-right: 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
+.social-links a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    margin-left: 30px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
 }
-
-.social-links a:hover {
-    color: var(--circle-color);
-    transform: translateY(-2px);
+.social-links a:hover{
+    color: var(--green);
+    transition: all 0.3s ease;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
 }
 
 /* =========================================
