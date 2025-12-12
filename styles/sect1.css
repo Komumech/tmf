@@ -490,7 +490,10 @@ body {
     color: #555;
     margin-top: 2rem;
 }
-
+.copyright a {
+    color: var(--text-color);
+    text-decoration: none;
+}
 /* --- Links & Contact Columns --- */
 .footer-col h3 {
     font-size: 1.25rem;
@@ -544,7 +547,7 @@ body {
 
 .footer-contact .icon {
     margin-right: 10px;
-    color: var(--circle-color);
+    color: black;
     width: 15px; /* Fixed width for alignment */
     text-align: center;
 }
