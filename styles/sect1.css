@@ -9,13 +9,84 @@
     --secondary-color: #f7f7f7; /* For contrast/stat background */
 }
 
-/* =========================================
-   2. LAYOUT & TYPOGRAPHY
-   ========================================= */
+/* Base Body Style */
+body {
+    margin: 0px;
+    font-family: "Raleway", sans-serif;
+}
 
-.section-padding{
+/* =========================================
+   2. NAVBAR STYLES
+   ========================================= */
+.navbar {
+    background-color: white;
+    width: 100vw;
+    height: 7rem;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: none;
+    top: 0px;
+    transition: box-shadow 0.3s ease;
+    z-index: 999;
+}
+
+/* Navbar shadow on scroll */
+.navbar.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-div {
+    padding-left: 20px;
+    padding-top: 5px;
+    float: left;
+}
+
+.logo-div:hover {
+    transform: scale(1.005);
+    transition: transform 0.3s ease;
+}
+
+.logo {
+    height: 3.2rem;
+    width: auto;
+    align-self: center;
+    cursor: pointer;
+}
+
+.nav-links {
+    float: right;
+    padding-right: 90px;
+    padding-top: 15px;
+    align-items: center;
+    display: flex;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    margin-left: 30px;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    transition: color 0.3s ease, border-bottom 0.3s ease, padding-bottom 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--circle-color);
+    border-bottom: 2px solid var(--circle-color);
+    padding-bottom: 5px;
+}
+
+/* =========================================
+   3. SECTION 1 (Hero) STYLES
+   ========================================= */
+.section-padding {
     margin-top: 5rem;
 }
+
 .sect1 {
     display: flex;
     justify-content: space-around;
@@ -33,11 +104,12 @@
     margin-top: 5rem;
     z-index: 2;
     position: relative;
-    /* NEW: Initial state for fade-in/lift-up animation */
+    /* Initial state for fade-in/lift-up animation */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
 /* Target state added by JS for animation */
 .headline.is-visible {
     opacity: 1;
@@ -83,7 +155,7 @@
 }
 
 /* =========================================
-   3. IMAGE & CIRCLE CONTAINERS (Sect 1)
+   4. IMAGE & CIRCLE CONTAINERS (Sect 1)
    ========================================= */
 .image {
     width: 45vw;
@@ -106,6 +178,7 @@
     transform: scale(0.95);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 /* Target state added by JS for animation */
 .top-img.is-visible {
     opacity: 1;
@@ -113,9 +186,9 @@
 }
 
 /* =========================================
-   4. ABSTRACT ANIMATED CIRCLES
+   5. ABSTRACT ANIMATED CIRCLES
    ========================================= */
-.circle, .circle2, .circle3, .circle4, .circle5 { /* Updated selector */
+.circle, .circle2, .circle3, .circle4, .circle5 { 
     background-color: var(--circle-color) !important;
     position: absolute;
     z-index: -1; 
@@ -165,15 +238,14 @@
     width: 25rem;
     height: 25rem; 
     opacity: 0.5;
-    top: 20%;      /* Center vertically within the .white-sect */
-    left: 2%;      /* Position it to the left side, behind the text */
-    transform: translateY(-50%); /* Maintain vertical centering */
+    top: 20%;     
+    left: 2%;     
+    transform: translateY(-50%); 
     animation: abstract-morph 28s ease-in-out infinite alternate;
 }
 
-
 /* =========================================
-   5. KEYFRAME: ABSTRACT FLUID MORPH
+   6. KEYFRAME: ABSTRACT FLUID MORPH
    ========================================= */
 @keyframes abstract-morph {
     0% {
@@ -195,9 +267,9 @@
 }
 
 /* =========================================
-   6. SECTION 2 & 3 STYLES
+   7. SECTION 2 & 3 (Vission, Mission, Impact) STYLES
    ========================================= */
-.grey-sect{
+.grey-sect {
     background-color: var(--background-color-light);
     width: 100vw;
     min-height: 80vh; 
@@ -205,15 +277,18 @@
     display: flex;
     justify-content: center;
     padding: 5rem 0;
-    position: relative; /* Added for circle positioning */
+    position: relative;
 }
-.grey-sect .cta-btn{
+
+.grey-sect .cta-btn {
     margin-left: 3rem;
 }
-.white-sect .cta-btn{
+
+.white-sect .cta-btn {
     margin-left: 3rem;
 }
-.white-sect{
+
+.white-sect {
     background-color: transparent;
     width: 100vw;
     min-height: 80vh; 
@@ -221,22 +296,24 @@
     display: flex;
     justify-content: center;
     padding: 5rem 0; 
-    position: relative; /* Added for circle positioning */
+    position: relative;
 }
 
-.sect2{
+.sect2 {
     height: fit-content;
     align-items: center;
     display: flex;
     width: 80vw;
     gap: 4rem; 
 }
-.sect2 .large{
+
+.sect2 .large {
     font-size: 2.5rem;
     padding-bottom: 1.4rem;
     font-weight: 500;
 }
-.img2{
+
+.img2 {
     height: 29rem;
     border-radius: 50%;
     flex-shrink: 0; 
@@ -245,74 +322,102 @@
     transform: scale(0.95);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 /* Target state added by JS for animation */
 .img2.is-visible {
     opacity: 1;
     transform: scale(1);
 }
 
-.sect2-headline{
+.sect2-headline {
     max-width: 40vw;
-    /* NEW: Initial state for fade-in/lift-up animation */
+    /* Initial state for fade-in/lift-up animation */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
 /* Target state added by JS for animation */
 .sect2-headline.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.sect2-undertxt{
+.sect2-undertxt {
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--text-color);
 }
 
-/* NEW STYLE: Ensure the text block sits above the large floating circle in the white section */
+/* Ensure the text block sits above the large floating circle in the white section */
 .white-sect .sect2-txt {
     position: relative;
     z-index: 1; 
 }
 
+/* --- SVG Background Styles (Plant Vines) --- */
+.vine-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* New: Ensure SVG scales nicely in the background */
+    object-fit: contain; 
+    z-index: 0; /* Ensures it's behind the content */
+    opacity: 0.15; /* Make it subtle */
+}
+/* IMPORTANT: Removed old .vine-stem, .vine-leaf, .vine-bud styles, as the new SVG styles its paths internally using <defs>. */
+
 /* --- SECTION 3: IMPACT (IMPROVED STYLES) --- */
-.sect3{
+.sect3 {
     background-color: var(--circle-color);
+    background-image: url(/images/img5.png);
+    background-size: cover;
+    background-position: top center;
     width: 100vw;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
 }
-.sect3-cont{
+
+.sect3-cont {
+    position: relative; /* Ensures content sits above the z-index: 0 SVG */
+    z-index: 1; 
     display: flex;
     justify-content: space-between; 
     align-items: center;
     width: 90vw;
     max-width: 1200px;
 }
-.sect3-txt{
+
+.sect3-txt {
     font-size: 2.2rem;
     font-weight: 700;
     color: var(--text-color);
     flex-shrink: 0;
     margin-right: -2rem;
 }
-.impact{
+
+.impact {
     display: flex;
     justify-content: center;
     margin-right: -2rem;
 }
-.imapact1{
+
+.imapact1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0rem;
 }
-.impact-num{
+
+.impact-num {
     font-size: 3.5rem;
     font-weight: 700;
     text-align: center;
@@ -320,9 +425,10 @@
     line-height: 1;
     color: var(--text-color);
 }
-.impact-txt{
+
+.impact-txt {
     background-color: var(--secondary-color);
-    border: none;
+    border: 2px solid black;
     font-size: 1rem;
     max-width: 100%;
     border-radius: 30px;
@@ -334,10 +440,10 @@
 }
 
 /* =========================================
-   9. FOOTER STYLES
+   8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: white; /* Light grey background */
+    background-color: white; 
     color: var(--text-color);
     padding: 3rem 0;
     font-family: 'Raleway', sans-serif;
@@ -369,9 +475,9 @@
 }
 
 .footer-logo {
-    height: 40px; /* Adjust as needed */
+    height: 40px; 
     margin-bottom: 1rem;
-    filter: grayscale(100%); /* Optional: Make logo grayscale to match professional tone */
+    filter: grayscale(100%); 
 }
 
 .foundation-mission {
@@ -408,7 +514,8 @@
     list-style: none;
     padding: 0;
 }
-.footer-links a{
+
+.footer-links a {
     text-decoration: none;
     color: black;
     font-size: 1.4rem;
@@ -417,11 +524,13 @@
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
+    display: block; /* Added display block to fix mobile stacking */
 }
-.footer-links a:hover{
-    color: var(--green);
+
+.footer-links a:hover {
+    color: var(--circle-color);
     transition: all 0.3s ease;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--circle-color);
     padding-bottom: 5px;
 }
 
@@ -446,7 +555,7 @@
     margin-top: 1.5rem;
 }
 
-.social-links a{
+.social-links a {
     text-decoration: none;
     color: black;
     font-size: 1.1rem;
@@ -455,20 +564,21 @@
     font-optical-sizing: auto;
     font-weight: 400;
 }
-.social-links a:hover{
-    color: var(--green);
+
+.social-links a:hover {
+    color: var(--circle-color);
     transition: all 0.3s ease;
     border-bottom: 2px solid black;
     padding-bottom: 5px;
 }
 
 /* =========================================
-   10. FOOTER RESPONSIVENESS
+   9. RESPONSIVE FIXES (FOOTER & GENERAL)
    ========================================= */
 @media (max-width: 900px) {
     .footer-content {
         flex-direction: column;
-        align-items: left;
+        align-items: flex-start;
         text-align: left;
         width: 95vw;
         justify-self: left;
@@ -478,130 +588,71 @@
         min-width: 100%;
         padding: 0;
     }
-    .footer-links ul li a{
+
+    .footer-links ul li a {
         justify-self: left;
         margin: 0px;
         font-size: 1rem;
         line-height: 2rem;
     }
+
     .footer-info {
         padding-right: 0;
     }
 
     .footer-col h3::after {
-        margin-top: 10px; /* Center underline */
+        margin-top: 10px;
     }
 
     .footer-links a, .footer-contact p {
         text-align: left;
-        justify-content:left;
+        justify-content: flex-start;
         margin-left: 0px;
         display: block;
     }
-}
-/* =========================================
-   7. RESPONSIVE FIXES (Sect 1)
-   ========================================= */
-@media (max-width: 768px) {
-    .sect1 {
-        flex-direction: column;
-        height: auto;
-        margin-top: 8rem;
-        padding-bottom: 2rem;
-        text-align: center;
-    }
     
-    /* === MOBILE REORDERING (Image before Text) === */
-    .image {
-        order: -1; /* Image comes first (top) */
-        width: 100%;
-        margin-top: 0; 
-        margin-bottom: 3rem; /* Space below the image */
-    }
-
-    .headline {
-        order: 1; /* Headline comes second (bottom) */
-        margin-top: 0;
-        margin-bottom: 3rem;
-        padding: 0 20px;
-        /* Ensure mobile size respects animation state */
-        transform: translateY(20px); 
-    }
-    .headline.is-visible {
-        transform: translateY(0);
-    }
-    
-    .headline-txt {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    
-    .large {
-        font-size: 2.5rem;
-    }
-
-    .top-img {
-        height: 20rem;
-        width: 20rem; 
-        margin-top: 0;
-        /* Ensure mobile size respects animation state */
-        transform: scale(0.95); 
-    }
-    .top-img.is-visible {
-        transform: scale(1);
-    }
-    
-    /* Circles in Sect 1 */
-    .circle { width: 8rem; height: 8rem; top: -1rem; left: 5%; }
-    .circle2 { width: 5rem; height: 5rem; bottom: -1rem; left: 75%; transform: translateX(-50%); }
-    .circle3 { display: none; }
-    /* Hide new circles on small screens for clean layout */
-    .circle4 { display: none; } 
-    .circle5{display: none;}
-    
-}
-
-/* =========================================
-   8. RESPONSIVE FIXES (Sect 2 & 3)
-   ========================================= */
-@media (max-width: 900px) {
-    .grey-sect .cta-btn, .white-sect .cta-btn{
+    .social-links a {
         margin-left: 0;
     }
+
+    /* Adjust CTA button margin for mobile view of Section 2/3 */
+    .grey-sect .cta-btn, .white-sect .cta-btn {
+        margin-left: 0;
+    }
+
     .sect2 {
-        flex-direction: column; 
+        flex-direction: column;
         text-align: center;
         width: 90vw;
         gap: 3rem;
     }
-    
+
     .img2 {
         height: 20rem;
         width: 20rem;
-        /* Ensure mobile size respects animation state */
-        transform: scale(0.95); 
+        transform: scale(0.95);
     }
     .img2.is-visible {
         transform: scale(1);
     }
-    
+
     .sect2-headline {
-        max-width: 100%; 
+        max-width: 100%;
         padding-left: 0;
-        /* Ensure mobile size respects animation state */
-        transform: translateY(20px); 
+        transform: translateY(20px);
     }
     .sect2-headline.is-visible {
         transform: translateY(0);
     }
-    
-    .section-padding{
+
+    .section-padding {
         margin-top: 0rem;
     }
+
     .sect2 .large {
         font-size: 2rem;
     }
-    
+
     .sect2-undertxt {
         max-width: 100%;
     }
@@ -632,4 +683,63 @@
         font-size: 1.1rem;
         padding: 12px 25px;
     }
+}
+
+/* =========================================
+   10. RESPONSIVE FIXES (SMALLER SCREENS, Sect 1)
+   ========================================= */
+@media (max-width: 768px) {
+    .sect1 {
+        flex-direction: column;
+        height: auto;
+        margin-top: 8rem;
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    /* === MOBILE REORDERING (Image before Text) === */
+    .image {
+        order: -1; /* Image comes first (top) */
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 3rem; /* Space below the image */
+    }
+
+    .headline {
+        order: 1; /* Headline comes second (bottom) */
+        margin-top: 0;
+        margin-bottom: 3rem;
+        padding: 0 20px;
+        transform: translateY(20px);
+    }
+    .headline.is-visible {
+        transform: translateY(0);
+    }
+
+    .headline-txt {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .large {
+        font-size: 2.5rem;
+    }
+
+    .top-img {
+        height: 20rem;
+        width: 20rem;
+        margin-top: 0;
+        transform: scale(0.95);
+    }
+    .top-img.is-visible {
+        transform: scale(1);
+    }
+
+    /* Circles in Sect 1 */
+    .circle { width: 8rem; height: 8rem; top: -1rem; left: 5%; }
+    .circle2 { width: 5rem; height: 5rem; bottom: -1rem; left: 75%; transform: translateX(-50%); }
+    .circle3 { display: none; }
+    /* Hide new circles on small screens for clean layout */
+    .circle4 { display: none; }
+    .circle5 { display: none; }
 }
