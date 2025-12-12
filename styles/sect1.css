@@ -530,7 +530,7 @@ body {
 .footer-links a:hover {
     color: var(--circle-color);
     transition: all 0.3s ease;
-    border-bottom: 2px solid var(--circle-color);
+    border-bottom: 1px solid var(--circle-color);
 }
 
 /* --- Contact Column --- */
