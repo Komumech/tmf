@@ -518,7 +518,8 @@ body {
     text-decoration: none;
     color: black;
     font-size: 1.4rem;
-    padding-bottom: 1.7rem;
+    padding-bottom: 1rem;
+    width: fit-content;
     margin-left: 30px;
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
@@ -530,7 +531,6 @@ body {
     color: var(--circle-color);
     transition: all 0.3s ease;
     border-bottom: 2px solid var(--circle-color);
-    padding-bottom: 5px;
 }
 
 /* --- Contact Column --- */
@@ -564,12 +564,7 @@ body {
     font-weight: 400;
 }
 
-.social-links a:hover {
-    color: var(--circle-color);
-    transition: all 0.3s ease;
-    border-bottom: 2px solid black;
-    padding-bottom: 5px;
-}
+
 
 /* =========================================
    9. RESPONSIVE FIXES (FOOTER & GENERAL)
@@ -587,7 +582,11 @@ body {
         min-width: 100%;
         padding: 0;
     }
-
+    
+    .footer-links ul{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
     .footer-links ul li a {
         justify-self: left;
         margin: 0px;
