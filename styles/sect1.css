@@ -412,8 +412,8 @@
     text-decoration: none;
     color: black;
     font-size: 1.4rem;
+    padding-bottom: 1.7rem;
     margin-left: 30px;
-    display: block;
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -468,28 +468,35 @@
 @media (max-width: 900px) {
     .footer-content {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 80vw;
+        align-items: left;
+        text-align: left;
+        width: 95vw;
+        justify-self: left;
     }
 
     .footer-col {
         min-width: 100%;
-        margin-bottom: 2rem;
         padding: 0;
     }
-    
+    .footer-links ul li a{
+        justify-self: left;
+        margin: 0px;
+        font-size: 1rem;
+        line-height: 2rem;
+    }
     .footer-info {
         padding-right: 0;
     }
 
     .footer-col h3::after {
-        margin: 5px auto 0 auto; /* Center underline */
+        margin-top: 10px; /* Center underline */
     }
 
     .footer-links a, .footer-contact p {
-        text-align: center;
-        justify-content: center;
+        text-align: left;
+        justify-content:left;
+        margin-left: 0px;
+        display: block;
     }
 }
 /* =========================================
@@ -550,6 +557,7 @@
     .circle3 { display: none; }
     /* Hide new circles on small screens for clean layout */
     .circle4 { display: none; } 
+    .circle5{display: none;}
     
 }
 
