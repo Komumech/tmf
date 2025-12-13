@@ -1,0 +1,13 @@
+.sect2-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.sect2-img .img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1.5s ease-in-out; /* Slower, smoother transition */
+}
