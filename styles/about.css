@@ -54,7 +54,10 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
+.meet-wrapper h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
 /* 🎠 Carousel Strip */
 .meet-carousel {
   display: flex;
@@ -103,6 +106,13 @@
   position: relative;
 }
 
+#spotlight-name{
+    font-size: 1.3rem;
+}
+.bio{
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
 .team-member.active {
   transform: scale(1.6);
   filter: none;
