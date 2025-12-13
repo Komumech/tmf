@@ -125,7 +125,17 @@
 
 /* 📋 Spotlight Info Panel */
 
-
+@media (max-width: 768px) {
+    .meet-wrapper{
+        flex-direction: column;
+    }
+    .under{
+        max-width: 86vw;
+    }
+    .slider-nav{
+        top: 50%;
+    }
+}
 /* ✨ Bounce Animation for Highlight */
 @keyframes bounce {
   0%   { transform: scale(1.3); }
@@ -133,3 +143,4 @@
   70%  { transform: scale(1.5); }
   100% { transform: scale(1.6); }
 }
+

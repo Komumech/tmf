@@ -60,3 +60,8 @@ body{
     border-bottom: 2px solid black;
     padding-bottom: 5px;
 }
+@media (max-width: 768px) {
+    .nav-links a{
+        display: none;
+    }
+}

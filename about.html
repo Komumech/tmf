@@ -68,6 +68,46 @@
         .slider-nav.prev { left: -60px; } /* Increased spacing */
         .slider-nav.next { right: -50px; } /* Increased spacing */
         @keyframes fadeIn { from { opacity: 0.4; } to { opacity: 1; } }
+
+        /* Responsive styles for "What We Do" slider on mobile */
+        @media (max-width: 768px) {
+            .what-we-do-slider {
+                width: 90vw; /* Use more screen width */
+                padding-left: 0;
+            }
+            .large{
+                padding-bottom: 0px;
+                margin-bottom: 0px;
+            }
+            .slide {
+                grid-template-columns: 1fr; /* Stack image and text vertically */
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .slide img {
+                height: 300px; /* Adjust image size for mobile */
+                width: 300px;
+                justify-self: center; /* Center the image */
+            }
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                bottom: 0; /* Move arrows to the bottom */
+                top: 65%;
+                transform: translateY(50%);
+            }
+            .slider-nav.prev { left: -10px; }
+            .slider-nav.next { right: -10px; }
+            .grey-sect{
+                margin-top: 5rem;
+            }
+            .circle4{
+                display: block;
+                margin-top: -5rem;
+                width: 10rem;
+                height: 10rem;
+            }
+        }
     </style>
 </head>
 <body>
