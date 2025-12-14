@@ -5,12 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+ 
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>The Mission Safe House</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/sect1.css">
 </head>
+<style>
+    .meet-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px 20px;
+  margin-top: 5rem;
+  background-image: url("/images/img5.png");
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.meet-wrapper h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+    
+}
+/* 🎠 Carousel Strip */
+.meet-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 55px 20px;
+  width: 100%;
+  height: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* 🍯 Custom Scrollbar */
+.meet-carousel::-webkit-scrollbar {
+  height: 10px;
+}
+.meet-carousel::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 50px;
+}
+.meet-carousel::-webkit-scrollbar-thumb {
+  background-color: var(--circle-color);
+  border-radius: 50px;
+  border: 2px solid transparent;
+}
+.meet-carousel {
+  scrollbar-color: var(--circle-color) var(--background-color-light); /* Firefox support */
+  scrollbar-width: thin;
+}
+
+/* 👤 Individual Profile Cards */
+.team-member {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  filter: blur(1px);
+  transform: scale(0.9);
+  position: relative;
+}
+
+#spotlight-name{
+    font-size: 1.3rem;
+}
+.bio{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+.team-member.active {
+  transform: scale(1.6);
+  filter: none;
+  animation: bounce 0.4s ease;
+  z-index: 5;
+}
+
+/* 🖼️ Profile Photo */
+.team-photo {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+}
+
+/* 💬 Hide text inside photo bubble */
+.name, .role {
+  display: none;
+}
+
+@media (max-width: 768px) {
+    .meet-wrapper{
+        flex-direction: column;
+    }
+    .meet-wrapper h2{
+        margin-left: -9rem;
+    }
+}
+</style>
 <body>
     <div class="navbar">
         <div class="logo-div">
@@ -49,29 +154,19 @@
         </div>
     </div>
 
-    <div class="grey-sect section-padding">
-        <div class="circle4"></div>
-        <div class="sect2">
-            <div class="sect2-img">
-                <img src="images/img1.png" alt="Vision image" class="img2">
-            </div>
-            <div class="sect2-txt">
-                <p class="sect2-headline">
-                    <span class="large">Our Vision</span>
-                    <span class="sect2-undertxt">
-                        Expanding Reach and Impact
-                        To meet the growing demand for our services and extend our reach, DHCEF
-                        Subsidize services for individuals facing financial constraints, ensuring access to
-                        care regardless of economic status.
-                        Enhance and expand our facilities, creating more conducive environments for
-                        healing and recovery.
-                    </span>
-                    <br>
-                    <button class="cta-btn">Contact Us</button>
-                </p>
-            </div>
-        </div>
+    <div class="meet-wrapper">
+    <h2>Our Vision</h2>
+
+<img src="https://missionsafehouse.vercel.app/images/img1.png" class="team-photo" alt="Emily Johnson, Customer Service Maestro">
+
+
+    <div class="spotlight-info">
+        <h3 id="spotlight-name"></h3>
+        <p id="spotlight-role"></p>
+        <p class="bio">Expanding Reach and Impact To meet the growing demand for our services and extend our reach, DHCEF Subsidize services for individuals facing financial constraints, ensuring access to care regardless of economic status. Enhance and expand our facilities, creating more conducive environments for healing and recovery.
+</p>
     </div>
+</div>
 
     <div class="white-sect">
         <div class="circle5"></div>
@@ -223,10 +318,7 @@
                 </ul>
             </div>
             <div class="footer-col footer-contact">
-                <h3>Contact Us</h3>
-                <p>Flat 18, Violet Street, Family Homes Estate, Asagba, Asaba, Delta State, Nigeria</p>
-                <p>+234 803 084 8900 <br>+234 803 673 1745</p>
-                <p>missionsafehouse.com.ng/about-us/</p>
+
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="icon fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="icon fab fa-twitter"></i></a>
@@ -236,6 +328,9 @@
             </div>
         </div>
     </footer>
+
+
+
 
     <script>
         // Intersection Observer for scroll animations
