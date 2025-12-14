@@ -13,6 +13,7 @@
     <title>The Mission Safe House</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/sect1.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 <style>
     .meet-wrapper {
@@ -113,23 +114,29 @@
         flex-direction: column;
     }
     .meet-wrapper h2{
-        margin-left: -9rem;
+       
     }
     .bio{
         max-width: 90vw;
+}
+    .nav-links{
+        display: none;
 }
 }
 </style>
 <body>
     <div class="navbar">
         <div class="logo-div">
-            <img src="images/logo.jpg" class="logo" alt="DHCEF Logo">
+            <a href="index.html"><img src="images/logo.jpg" class="logo" alt="DHCEF Logo"></a>
         </div>
         <div class="nav-links">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="#">Services</a>
             <a href="#">Contact</a>
+        </div>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
         </div>
     </div>
 
@@ -335,7 +342,6 @@
 
 
 
-
     <script>
         // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', () => {
@@ -368,6 +374,21 @@
             window.addEventListener('scroll', update, { passive: true });
             update();
         }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerIcon = hamburger.querySelector('i');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between hamburger and close icon
+            if (navLinks.classList.contains('active')) {
+                hamburgerIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                hamburgerIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
     </script>
 </body>
 </html>

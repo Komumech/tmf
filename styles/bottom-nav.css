@@ -1,0 +1,53 @@
+/* Hide the bottom nav on larger screens */
+.bottom-nav {
+    display: none;
+}
+
+/* Show and style the bottom nav only on mobile screens */
+@media (max-width: 768px) {
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Ensure it's above other content */
+        padding: 8px 0;
+        /* Add padding for iPhone safe areas, good practice for all devices */
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #333; /* Default icon and text color */
+        font-family: 'Raleway', sans-serif; /* Match your site's font */
+        font-size: 12px;
+        transition: color 0.3s ease;
+    }
+
+    .bottom-nav-item .fas {
+        font-size: 20px; /* Icon size */
+        margin-bottom: 4px;
+    }
+
+    .bottom-nav-item.active {
+        color: #007bff; /* Active item color - you can change this */
+    }
+
+    /* Hide the top navbar on mobile to avoid duplication */
+    .navbar {
+        display: none;
+    }
+
+    /* Add padding to the bottom of the body to prevent content from being hidden by the navbar */
+    body {
+        padding-bottom: 70px; /* Adjust this value based on the navbar's height */
+    }
+}

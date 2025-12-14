@@ -371,9 +371,9 @@ body {
 
 /* --- SECTION 3: IMPACT (IMPROVED STYLES) --- */
 .sect3 {
-    background-color: var(--circle-color);
     background-image: url(/images/img5.png);
     background-size: cover;
+    /* backdrop-filter: brightness(40%); <--- Optional: you can remove this or keep it for an additional effect */
     background-position: top center;
     width: 100vw;
     height: fit-content;
@@ -383,6 +383,23 @@ body {
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
+}
+
+/* Add an overlay to make the background image darker */
+.sect3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.164); /* Adjust the '0.6' (60% opacity) value to control darkness */
+    z-index: 1; /* Ensures the overlay is above the background image */
+}
+
+/* Ensure your content within .sect3 is above the overlay */
+.sect3 > * {
+    z-index: 2; 
 }
 
 .sect3-cont {
@@ -427,7 +444,7 @@ body {
 
 .impact-txt {
     background-color: var(--secondary-color);
-    border: 2px solid black;
+    border: 1px solid black;
     font-size: 1rem;
     max-width: 100%;
     border-radius: 30px;
