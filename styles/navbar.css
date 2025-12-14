@@ -134,10 +134,10 @@ body{
     .nav-links.active a:nth-child(4) { transition-delay: 0.4s; }
 
     .nav-links a:hover {
-        background-color: #66eeb82d; /* Theme color */
+        
         color: white;
         transform: scale(1.05);
-        border-bottom: none; /* Override desktop hover */
+        border-bottom: 1px #66eeb83c solid; /* Override desktop hover */
         padding-bottom: 12px; /* Keep padding consistent */
     }
 
