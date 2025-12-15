@@ -3,10 +3,10 @@
    ========================================= */
 :root {
     /* Updated color variable: #66eeb8 (Bright Green/Teal) */
-    --circle-color: #66eeb8; 
-    --text-color: #000000;
+    --circle-color: #F58634; 
+    --text-color:#104E3A;
     --background-color-light: rgb(236, 236, 236);
-    --secondary-color: #f7f7f7; /* For contrast/stat background */
+    --secondary-color: #f7f7f7; /* Fr contrast/stat background */
 }
 
 /* Base Body Style */
@@ -49,7 +49,6 @@ body {
 }
 
 .logo {
-    height: 3.2rem;
     width: auto;
     align-self: center;
     cursor: pointer;
@@ -65,7 +64,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
     font-size: 1.1rem;
     margin-left: 30px;
     font-family: "Raleway", sans-serif;
@@ -138,7 +137,7 @@ body {
 /* --- CTA Button --- */
 .cta-btn {
     background-color: var(--circle-color);
-    color: black;
+    color: #000;
     font-family: "Raleway", sans-serif;
     border: 1px black solid;
     margin-top: 2rem;
@@ -416,7 +415,7 @@ body {
 .sect3-txt {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: black;
     flex-shrink: 0;
     margin-right: -2rem;
 }
@@ -425,6 +424,8 @@ body {
     display: flex;
     justify-content: center;
     margin-right: -2rem;
+    color: black;
+    color: black;
 }
 
 .imapact1 {
@@ -440,7 +441,7 @@ body {
     text-align: center;
     padding-bottom: 0.5rem;
     line-height: 1;
-    color: var(--text-color);
+    color: black;
 }
 
 .impact-txt {
@@ -452,7 +453,7 @@ body {
     padding: 10px 20px;
     font-weight: 500;
     text-align: center;
-    color: var(--text-color);
+    color: black;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -499,7 +500,7 @@ body {
 
 .footer-logo {
     margin-bottom: -4rem; /* Adjusted margin for spacing */
-    height: 40px;
+    height: 7.2rem;
     filter: none; /* Remove filter for light background */
 }
 
@@ -507,12 +508,12 @@ body {
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
-    color: #555; /* Slightly lighter dark text for mission statement */
+    color: var(--text-color); /* Slightly lighter dark text for mission statement */
 }
 
 .copyright {
     font-size: 0.9rem;
-    color: #555; /* Subtler color for copyright */
+    color: black; /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
     margin-top: 1.7rem; /* More space above copyright */
@@ -521,7 +522,7 @@ body {
     width: 100%;
 }
 .copyright a {
-    color: rgb(13, 105, 186); /* Match main footer text color */
+    color: rgb(110, 58, 125); /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
@@ -529,7 +530,7 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem; /* Slightly reduced margin */
-    color: var(--text-color); /* Dark color for headings */
+    color: black; /* Dark color for headings */
     position: relative;
 }
 
@@ -554,14 +555,14 @@ body {
 
 .footer-links a {
     text-decoration: none;
-    color: var(--text-color); /* Dark color for links */
+    color: black; /* Dark color for links */
     font-size: 1rem; /* Slightly smaller for one line */
     line-height: 1.5;
     width: fit-content;
 }
 
 .footer-links a:hover {
-    color: var(--circle-color); /* Accent color on hover */
+    color: rgb(59, 54, 54); /* Accent color on hover */
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 1px solid var(--circle-color); /* Accent color underline */
 }
@@ -594,7 +595,7 @@ body {
 
 .social-links a {
     text-decoration: none;
-    color: var(--text-color); /* Dark color for social icons */
+    color: black; /* Dark color for social icons */
     font-size: 1.1rem;
     /* margin-right: 20px; Removed as gap handles spacing */
 }
@@ -841,5 +842,5 @@ body {
     .footer-col h3, .footer-links a, .footer-contact p, .foundation-mission, .copyright {
         color: var(--text-color); /* Maintain dark text on light background */
     }
-    .footer-contact .icon { color: var(black); }
+    .footer-contact .icon { color: var(--text-color); }
 }
