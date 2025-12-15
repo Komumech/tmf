@@ -505,7 +505,6 @@ body {
 .copyright {
     font-size: 0.8rem;
     color: #555;
-    margin-top: 2rem;
 }
 .copyright a {
     color: var(--text-color);
