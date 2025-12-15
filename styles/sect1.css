@@ -460,38 +460,50 @@ body {
    8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: white; 
+    background-color: var(--circle-color); 
     color: var(--text-color);
-    padding: 3rem 0;
     font-family: 'Raleway', sans-serif;
     width: 100vw;
+    bottom: 0;
+    padding-bottom: 0.2rem;
+    align-items: center;
     position: relative;
     bottom: 0px;
 }
 
 .footer-content {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    justify-content: flex-start; /* Align columns to the start */
     align-items: flex-start;
-    width: 90vw;
+    width: 60vw;
+    gap: 0px;
+    width: 80vw;
+    padding-top: 0.3rem;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 5px;
+    gap: 1rem; /* Add gap between columns */
 }
 
 .footer-col {
-    flex: 1;
+    flex: 0;
     min-width: 250px;
+    flex: 1;
     padding: 0 10px;
+    margin-bottom: -3rem;
 }
 
 /* --- Logo & Info Column --- */
 .footer-info {
     flex: 1.5; /* Make the info column wider */
     padding-right: 40px;
+    flex: 1; /* Equal flex basis */
+    min-width: 250px;
 }
 
 .footer-logo {
+    margin-bottom: -4rem;
     height: 40px; 
     filter: grayscale(100%); 
 }
@@ -503,8 +515,12 @@ body {
 }
 
 .copyright {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #555;
+    line-height: 1.4rem;
+    text-align: center;
+    margin-top: 2.2rem;
+    width: 100%;
 }
 .copyright a {
     color: var(--text-color);
@@ -531,6 +547,7 @@ body {
 .footer-links ul {
     list-style: none;
     padding: 0;
+    margin-left: -3rem;
 }
 
 .footer-links a {
@@ -547,9 +564,9 @@ body {
 }
 
 .footer-links a:hover {
-    color: var(--circle-color);
+    color: var(--background-color-light);
     transition: all 0.3s ease;
-    border-bottom: 1px solid var(--circle-color);
+    border-bottom: 1px solid var(--background-color-light);
 }
 
 /* --- Contact Column --- */
@@ -570,14 +587,17 @@ body {
 
 /* --- Social Media --- */
 .social-links {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 0px;
+    flex-direction: row;
 }
 
 .social-links a {
     text-decoration: none;
     color: black;
     font-size: 1.1rem;
-    margin-left: 30px;
+    margin-right: 20px; /* Use margin-right for spacing */
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -710,6 +730,21 @@ body {
    10. RESPONSIVE FIXES (SMALLER SCREENS, Sect 1)
    ========================================= */
 @media (max-width: 768px) {
+    .main-footer{
+        
+    }
+    .footer-logo{
+        padding-top: 13rem;
+        margin-bottom: 0px;
+        margin-top: -12rem;
+    }
+    .footer-links ul{
+        margin-left: 0px;
+        padding-top: 1.5rem;
+    }
+    .social-links{
+        padding-bottom: 1.3rem;
+    }
     .sect1 {
         flex-direction: column;
         height: auto;
@@ -764,4 +799,46 @@ body {
     /* Hide new circles on small screens for clean layout */
     .circle4 { display: none; }
     .circle5 { display: none; }
+}
+
+/* =========================================
+   11. RESPONSIVE FIXES (SMALL MOBILE / ANDROID)
+   ========================================= */
+@media (max-width: 480px) {
+    .nav-links {
+        padding-right: 20px; /* Reduce padding on very small screens */
+    }
+
+    .nav-links a {
+        margin-left: 15px; /* Reduce space between nav links */
+        font-size: 1rem;
+    }
+
+    .large {
+        font-size: 2.2rem; /* Further reduce hero headline size */
+    }
+
+    .headline-txt {
+        font-size: 1.1rem;
+    }
+
+    .sect2 .large {
+        font-size: 1.8rem; /* Further reduce section headline size */
+    }
+
+    .sect2-undertxt {
+        font-size: 1rem;
+    }
+
+    .sect3-txt {
+        font-size: 1.6rem; /* Further reduce impact section text */
+    }
+
+    .impact-num {
+        font-size: 3rem; /* Reduce the impact number size */
+    }
+
+    .impact-txt {
+        font-size: 0.9rem;
+    }
 }
