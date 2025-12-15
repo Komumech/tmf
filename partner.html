@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>TMF - About Us</title>
+    <title>TMF - Partner With Us</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/sect1.css">
@@ -24,9 +24,6 @@
             justify-content: center;
             width: 70vw;
             margin: 1rem auto 0;
-        }
-        .sect1{
-            margin-top: 4rem;
         }
         .slide {
             display: none; /* Hide all slides by default */
@@ -112,126 +109,226 @@
             }
         }
 
-        /* Styles for the Contact Form */
-        .contact-form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .contact-form h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-color-dark);
-        }
-        .form-row {
-            display: flex;
-            gap: 1rem;
-        }
-        .form-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-size: 1rem;
-            color: #555;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1.7px solid #ccc;
-            border-radius: 8px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--circle-color);
-            box-shadow: 0 0 0 3px rgba(135, 182, 182, 0.3);
-        }
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        .contact-form .cta-btn {
-            align-self: flex-start;
-            margin-top: 1rem;
-        }
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-            }
-            .contact-form input,
-            .contact-form textarea {
-                width: 85vw;
-            }
-        }
-
-        /* Styles for Contact Details Section */
-        .contact-sect2 {
-            margin-top: 4.5rem;
-            padding: 4rem 2rem;
-            background-color: #f9f9f9; /* A light grey background to separate it */
+        /* =========================================
+           12. PRICING/DONATION TIER STYLES
+           ========================================= */
+        .pricing-section {
+            margin-top: 3rem;
+            padding: 6rem 2rem;
+            background-color: #f9f9f9;
+            position: relative;
             text-align: center;
         }
-        .contact-details h3 {
-            font-size: 2.2rem;
-            font-weight: 500;
+
+        .pricing-section h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--text-color-dark);
+            color: #333;
         }
-        .contact-details > p {
-            font-size: 1.1rem;
+
+        .pricing-section .subtitle {
+            font-size: 1.2rem;
             color: #666;
             max-width: 600px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 4rem auto;
         }
-        .contact-info-items {
+
+        .pricing-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .contact-group{
-            display: flex;
-            flex-direction: column;
-            gap: 1.7rem;
-        }
-        .contact-item {
-            display: flex;
             align-items: center;
-            gap: 1rem;
-            text-align: left;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
             background: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            min-width: 280px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            width: 280px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid transparent;
         }
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
         }
-        .contact-item i {
-            font-size: 1.8rem;
-            color: var(--circle-color);
+
+        /* --- Card Header & Price --- */
+        .pricing-card .tier-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
-        .contact-item div span a{
-            color: #0d90a1;
-            text-decoration: none;
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1;
         }
-        .contact-item h4 {
+
+        .pricing-card .price span {
             font-size: 1.2rem;
             font-weight: 500;
-            margin: 0 0 0.2rem 0;
+            color: #777;
+        }
+
+        /* --- Features List --- */
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .pricing-card ul li i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* --- CTA Button --- */
+        .pricing-card .cta-btn {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        /* --- Color Variations --- */
+        /* Tier 1: Bronze */
+        .pricing-card.bronze { border-top-color: #cd7f32; }
+        .pricing-card.bronze .price, .pricing-card.bronze ul i { color: #cd7f32; }
+        .pricing-card.bronze .cta-btn { background-color: #cd7f32; color: #fff; }
+        .pricing-card.bronze .cta-btn:hover { background-color: #b8722d; }
+
+        /* Tier 2: Silver */
+        .pricing-card.silver { border-top-color: #c0c0c0; }
+        .pricing-card.silver .price, .pricing-card.silver ul i { color: #a0a0a0; }
+        .pricing-card.silver .cta-btn { background-color: #c0c0c0; color: #333; }
+        .pricing-card.silver .cta-btn:hover { background-color: #adadad; }
+
+        /* Tier 3: Gold (Featured) */
+        .pricing-card.gold {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-top-color: #ffd700;
+        }
+        .pricing-card.gold .price, .pricing-card.gold ul i { color: #e0bd00; }
+        .pricing-card.gold .cta-btn { background-color: #ffd700; color: #333; }
+        .pricing-card.gold .cta-btn:hover { background-color: #eabf00; }
+
+        .featured-badge {
+            position: absolute;
+            top: -1px;
+            right: 20px;
+            background: #ffd700;
+            color: #333;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Tier 4: Platinum */
+        .pricing-card.platinum { border-top-color: #e5e4e2; }
+        .pricing-card.platinum .price, .pricing-card.platinum ul i { color: #9a9997; }
+        .pricing-card.platinum .cta-btn { background-color: #e5e4e2; color: #333; }
+        .pricing-card.platinum .cta-btn:hover { background-color: #d1d0ce; }
+
+        /* Tier 5: Diamond (Using site's accent color) */
+        .pricing-card.diamond { border-top-color: var(--circle-color); }
+        .pricing-card.diamond .price, .pricing-card.diamond ul i { color: var(--circle-color); }
+        .pricing-card.diamond .cta-btn { background-color: var(--circle-color); color: #000; }
+        .pricing-card.diamond .cta-btn:hover { background-color: #55d4a3; }
+
+        /* --- Background Decorative Circles --- */
+        .pricing-section {
+            position: relative;
+            overflow: hidden; /* Prevents circles from spilling out */
+        }
+        .pricing-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .pricing-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            background-color: var(--circle-color);
+            opacity: 0.1;
+        }
+        .pricing-bg-circle.circle-1 { width: 250px; height: 250px; top: 10%; left: -80px; }
+        .pricing-bg-circle.circle-2 { width: 350px; height: 350px; bottom: -150px; right: -100px; }
+        .pricing-bg-circle.circle-3 { width: 120px; height: 120px; top: 25%; right: 10%; }
+
+
+        .circleimg{
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+        }
+        
+        .img-circle{
+            position: absolute;
+            top: 100px;
+            opacity: 0.7;
+            left: 50px;
+        }
+        .second{
+            top: 700px;
+            left: auto;
+            right: 30px;
+        }
+        .pricing-section .circle4{
+            position: absolute;
+            width: 15rem;
+            height: 15rem;
+            top: 50px;
+            left: 140px;
+            z-index: 0;
+        }
+        /* Responsive adjustments for pricing cards */
+        @media (max-width: 1200px) {
+            .pricing-card.gold {
+                transform: scale(1); /* Disable scaling on smaller screens to prevent layout issues */
+            }
+        }
+        @media (max-width: 768px) {
+            .img-circle{
+                z-index: 5;
+                position: relative;
+                opacity: 1;
+                top: 0;
+                margin: 0 auto;
+                left: 0;
+            }
+            .pricing-section { padding: 4rem 1rem; }
+            .pricing-section h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -244,81 +341,93 @@
             <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
             <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
             <a href="#"><i class="fas fa-concierge-bell"></i><span>What We Do</span></a>
-            <a href="#"><i class="fas fa-envelope"></i><span>Contact</span></a>
-             <a href="partner.html"><i class="fas fa-envelope"></i><span>Partner With Us</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="partner.html"><i class="fas fa-envelope"></i><span>Partner With Us</span></a>
         </div>
         <div class="hamburger-menu">
             <i class="fas fa-bars"></i>
         </div>
     </div>
-    <div class="contact-sect2">
-        <div class="contact-details">
-            <h3>Get in Touch Directly</h3>
-            <p>Feel free to reach out to us through any of the following methods. We look forward to hearing from you!</p>
-            <div class="contact-info-items">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Our Office</h4>
-                        <span>Dhcef/tmf, Flat 18, Violet Street, Family Homes Estate Asaba, Delta Nigeria</span>
-                    </div>
-                </div>
-                <div class="contact-group">
-                    <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <span>+234 812 113 3399</span>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <span><a href="https://tmf.dhfamily@gmail.com">info@missionsafehouse.com.ng</a></span>
-                    </div>
-                </div>
-                </div>
- 
-            </div>
+
+<section class="pricing-section">
+<div class="circle4"></div>
+
+
+    <h2>Choose Your Impact</h2>
+    <p class="subtitle">Your contribution fuels our mission and empowers individuals on their journey to mental wellness. Select a tier that resonates with you.</p>
+    <div class="pricing-container">
+        <!-- Card 1: Bronze -->
+        <div class="pricing-card bronze">
+            <h3 class="tier-name">Bronze Supporter</h3>
+            <div class="price">$10 <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Contribute to resource materials.</li>
+                <li><i class="fas fa-check-circle"></i>Support our community newsletter.</li>
+                <li><i class="fas fa-check-circle"></i>Receive quarterly updates.</li>
+            </ul>
+            <a href="#" class="cta-btn">Donate Now</a>
+        </div>
+        <!-- Card 2: Silver -->
+        <div class="pricing-card silver">
+            <h3 class="tier-name">Silver Partner</h3>
+            <div class="price">$25 <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Fund a virtual support group session.</li>
+                <li><i class="fas fa-check-circle"></i>Help maintain our helpline.</li>
+                <li><i class="fas fa-check-circle"></i>All Bronze benefits.</li>
+            </ul>
+            <a href="#" class="cta-btn">Donate Now</a>
+        </div>
+        <!-- Card 3: Gold (Featured) -->
+        <div class="pricing-card gold">
+            <div class="featured-badge">Most Popular</div>
+            <h3 class="tier-name">Gold Benefactor</h3>
+            <div class="price">$50 <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Sponsor an individual's counseling.</li>
+                <li><i class="fas fa-check-circle"></i>Support a community workshop.</li>
+                <li><i class="fas fa-check-circle"></i>All Silver benefits.</li>
+            </ul>
+            <a href="#" class="cta-btn">Donate Now</a>
+        </div>
+        <!-- Card 4: Platinum -->
+        <div class="pricing-card platinum">
+            <h3 class="tier-name">Platinum Guardian</h3>
+            <div class="price">$100 <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Fund a full mental health program.</li>
+                <li><i class="fas fa-check-circle"></i>Enable professional development.</li>
+                <li><i class="fas fa-check-circle"></i>All Gold benefits.</li>
+            </ul>
+            <a href="#" class="cta-btn">Donate Now</a>
+        </div>
+
+
+        <div class="img-circle second">
+    <img class="circleimg" src="/images/img11.jpeg" alt="">
+</div>
+
+
+        <!-- Card 5: Diamond -->
+        <div class="pricing-card diamond">
+            <h3 class="tier-name">Diamond Visionary</h3>
+            <div class="price">$250+ <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Drive long-term strategic initiatives.</li>
+                <li><i class="fas fa-check-circle"></i>Champion new program creation.</li>
+                <li><i class="fas fa-check-circle"></i>All Platinum benefits.</li>
+            </ul>
+            <a href="#" class="cta-btn">Donate Now</a>
         </div>
     </div>
-   <div class="sect1">
-        <div class="headline">
-            <form action="#" method="POST" class="contact-form">
-                <h2>Contact Us</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="first-name">Name</label>
-                        <input type="text" id="first-name" name="first-name" placeholder="Your name">
-                    </div>
-                    <div class="form-group">
-                        <label for="last-name">Last name</label>
-                        <input type="text" id="last-name" name="last-name" placeholder="Your last name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Your email*</label>
-                    <input type="email" id="email" name="email" placeholder="Your email address" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message*</label>
-                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-                </div>
-                <button type="submit" class="cta-btn">Send Message</button>
-            </form>
-        </div>
-        <div class="image">
-            <div class="circle"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="img-sect2">
-            <img src="images/img7.png" class="top-img" alt="A friendly person ready to help">
-            </div>
+</section>
 
-        </div>
-    </div>
 
+
+
+
+
+    
         <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-col footer-info">
@@ -326,8 +435,8 @@
             </div>
             <div class="footer-col footer-links">
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="a">What We Do</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">What We Do</a></li>
                     <li><a href="partner.html">Support/Donate</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Get Involved</a></li>
@@ -342,9 +451,8 @@
                     <a href="#" aria-label="LinkedIn"><i class="icon fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-                            <p class="copyright">&copy; 2025 DHCEF Foundation. All rights reserved. <br>By <a href="https://komutheme2.vercel.app/">KomuMech</a></p>
- 
         </div>
+        <p class="copyright">&copy; 2025 DHCEF Foundation. All rights reserved. <br> By <a href="https://komutheme2.vercel.app/">KomuMech</a></p>
     </footer>
 
 
