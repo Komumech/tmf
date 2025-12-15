@@ -460,7 +460,7 @@ body {
    8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: var(--secondary-color); /* Use a light grey for a professional look */
+    background-color: var(--circle-color); /* Use a light grey for a professional look */
     color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
