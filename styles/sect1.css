@@ -21,7 +21,7 @@ body {
 .navbar {
     background-color: white;
     width: 100vw;
-    height: 7rem;
+    height: 5rem;
     position: fixed;
     align-items: center;
     display: flex;
@@ -460,30 +460,26 @@ body {
    8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: var(--circle-color); 
-    color: var(--text-color);
+    background-color: var(--secondary-color); /* Use a light grey for a professional look */
+    color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
-    bottom: 0;
-    padding-bottom: 0.2rem;
+    padding-top: 3rem; /* More vertical padding */
+    padding-bottom: 2rem; /* More vertical padding */
     align-items: center;
-    position: relative;
-    bottom: 0px;
+    position: relative; /* Keep relative for z-index if needed */
 }
 
 .footer-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    justify-content: flex-start; /* Align columns to the start */
+    justify-content: space-between; /* Distribute columns */
     align-items: flex-start;
-    width: 60vw;
-    gap: 0px;
+    /* Removed duplicate width and conflicting justify-content */
     width: 80vw;
-    padding-top: 0.3rem;
+    gap: 2rem; /* Consistent gap between columns */
     max-width: 1200px;
     margin: 0 auto;
-    gap: 1rem; /* Add gap between columns */
 }
 
 .footer-col {
@@ -491,47 +487,50 @@ body {
     min-width: 250px;
     flex: 1;
     padding: 0 10px;
-    margin-bottom: -3rem;
+    margin-bottom: 0; /* Removed negative margin */
 }
 
 /* --- Logo & Info Column --- */
 .footer-info {
     flex: 1.5; /* Make the info column wider */
     padding-right: 40px;
-    flex: 1; /* Equal flex basis */
+    /* flex: 1; Removed duplicate flex property */
     min-width: 250px;
 }
 
 .footer-logo {
-    margin-bottom: -4rem;
-    height: 40px; 
-    filter: grayscale(100%); 
+    margin-bottom: 1rem; /* Adjusted margin for spacing */
+    height: 40px;
+    filter: none; /* Remove filter for light background */
 }
 
 .foundation-mission {
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
+    color: #555; /* Slightly lighter dark text for mission statement */
 }
 
 .copyright {
     font-size: 0.9rem;
-    color: #555;
+    color: #555; /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
-    margin-top: 2.2rem;
+    margin-top: 3rem; /* More space above copyright */
+    padding-top: 1rem; /* Padding for separation */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator line */
     width: 100%;
 }
 .copyright a {
-    color: var(--text-color);
+    color: var(--text-color); /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
 .footer-col h3 {
     font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
+    margin-bottom: 1rem; /* Slightly reduced margin */
+    color: var(--text-color); /* Dark color for headings */
     position: relative;
 }
 
@@ -540,33 +539,31 @@ body {
     display: block;
     width: 30px;
     height: 3px;
-    background-color: var(--circle-color);
+    background-color: var(--circle-color); /* Use accent color for underline */
     margin-top: 5px;
 }
 
 .footer-links ul {
     list-style: none;
     padding: 0;
-    margin-left: -3rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .footer-links a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color); /* Dark color for links */
     font-size: 1.1rem;
     line-height: 1.7rem;
     width: fit-content;
-    margin-left: 30px;
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    display: block; /* Added display block to fix mobile stacking */
 }
 
 .footer-links a:hover {
-    color: var(--background-color-light);
-    transition: all 0.3s ease;
-    border-bottom: 1px solid var(--background-color-light);
+    color: var(--circle-color); /* Accent color on hover */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px solid var(--circle-color); /* Accent color underline */
 }
 
 /* --- Contact Column --- */
@@ -580,27 +577,24 @@ body {
 
 .footer-contact .icon {
     margin-right: 10px;
-    color: black;
+    color: black; /* Accent color for icons */
     width: 20px; /* Fixed width for alignment */
     text-align: center;
 }
 
 /* --- Social Media --- */
 .social-links {
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Slightly reduced margin */
     display: flex;
-    gap: 0px;
+    gap: 15px; /* Spacing between social icons */
     flex-direction: row;
 }
 
 .social-links a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color); /* Dark color for social icons */
     font-size: 1.1rem;
-    margin-right: 20px; /* Use margin-right for spacing */
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    /* margin-right: 20px; Removed as gap handles spacing */
 }
 
 
@@ -609,14 +603,14 @@ body {
    9. RESPONSIVE FIXES (FOOTER & GENERAL)
    ========================================= */
 @media (max-width: 900px) {
-    .logo{
+    .logo {
         height: 2.8rem;
     }
     .footer-content {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
-        width: 95vw;
+        width: 90vw; /* Adjusted width for better mobile padding */
         justify-self: left;
     }
 
@@ -624,10 +618,9 @@ body {
         min-width: 100%;
         padding: 0;
     }
-    
-    .footer-links ul{
-        display: grid;
-        grid-template-columns: 100%;
+
+    .footer-links ul {
+        gap: 0.2rem;
     }
     .footer-links ul li a {
         justify-self: left;
@@ -649,9 +642,8 @@ body {
         text-align: left;
         justify-content: flex-start;
         margin-left: 0px;
-        display: block;
     }
-    
+
     .social-links a {
         margin-left: 0;
     }
@@ -730,20 +722,19 @@ body {
    10. RESPONSIVE FIXES (SMALLER SCREENS, Sect 1)
    ========================================= */
 @media (max-width: 768px) {
-    .main-footer{
-        
+    .main-footer {
+        padding-top: 2rem; /* Adjust padding for smaller screens */
+        padding-bottom: 1rem;
     }
-    .footer-logo{
-        padding-top: 13rem;
-        margin-bottom: 0px;
-        margin-top: -12rem;
+    .footer-logo {
+        margin-bottom: 1rem; /* Ensure consistent spacing */
     }
-    .footer-links ul{
-        margin-left: 0px;
-        padding-top: 1.5rem;
+    .footer-links ul {
+        margin-left: 0;
+        padding-top: 1rem;
     }
-    .social-links{
-        padding-bottom: 1.3rem;
+    .social-links {
+        padding-bottom: 1rem;
     }
     .sect1 {
         flex-direction: column;
@@ -841,4 +832,10 @@ body {
     .impact-txt {
         font-size: 0.9rem;
     }
+
+    /* Ensure footer text colors are still readable on small screens */
+    .footer-col h3, .footer-links a, .footer-contact p, .foundation-mission, .copyright {
+        color: var(--text-color); /* Maintain dark text on light background */
+    }
+    .footer-contact .icon { color: var(black); }
 }
