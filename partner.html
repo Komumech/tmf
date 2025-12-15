@@ -287,31 +287,82 @@
         .pricing-bg-circle.circle-3 { width: 120px; height: 120px; top: 25%; right: 10%; }
 
 
-        .circleimg{
-            width: 20rem;
-            height: 20rem;
-            border-radius: 50%;
-        }
         
-        .img-circle{
-            position: absolute;
-            top: 100px;
-            opacity: 0.7;
-            left: 50px;
-        }
-        .second{
-            top: 500px;
-            left: auto;
-            right: 10px;
-        }
-        .pricing-section .circle4{
-            position: absolute;
-            width: 15rem;
-            height: 15rem;
-            top: 50px;
-            left: 140px;
-            z-index: 0;
-        }
+/* Styles for the Hero Image Slider */
+.hero-slider {
+    width: 45vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-slider .slide {
+    display: none; /* Hide all slides by default */
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+    text-align: center; /* Center the image within the slide */
+    justify-content: center;
+    width: 100vw;
+}
+
+.hero-slider .slide.active-slide {
+    display: block; /* Show only the active slide */
+
+}
+
+.hero-slider .slide .top-img {
+    margin-top: 0rem;
+    margin-bottom: 0.4rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    object-fit: cover;
+    justify-self: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.hero-slider .slider-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-slider .slider-nav:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-slider .slider-nav.prev { left: 0px; }
+.hero-slider .slider-nav.next { right: 0px; }
+
+.sect1{
+    margin-top: 7rem;
+}
+@media (max-width: 768px){
+.hero-slider .slider-nav.prev { left: -100px; }
+.hero-slider .slider-nav.next { right: -100px; }
+}
+.headline{
+    margin-top: 0rem;
+}
+.headline-txt{
+    margin-top: 0rem;
+}
         /* Responsive adjustments for pricing cards */
         @media (max-width: 1200px) {
             .pricing-card.gold {
@@ -342,20 +393,41 @@
             <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
             <a href="#"><i class="fas fa-concierge-bell"></i><span>What We Do</span></a>
             <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
-            <a href="partner.html"><i class="fas fa-envelope"></i><span>Partner With Us</span></a>
         </div>
         <div class="hamburger-menu">
             <i class="fas fa-bars"></i>
         </div>
     </div>
-
+   <div class="sect1">
+        <div class="headline">
+            <p class="headline-txt">
+                <span class="large">
+                    Choose Your Impact
+                </span>
+                <br>
+Your contribution fuels our mission and empowers individuals on their journey to mental wellness. Select a tier that resonates with you.
+            </p>
+        </div>
+        <div class="hero-slider">
+            <div class="circle"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="slide active-slide">
+                <img src="images/img7.png" alt="Vision image 1" class="top-img img2">
+            </div>
+            <div class="slide">
+                <img src="images/img6.jpg" alt="Vision image 2" class="top-img img2">
+            </div>
+            <div class="slide">
+                <img src="images/img11.jpeg" alt="Vision image 3" class="top-img img2">
+            </div>
+            <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
 <section class="pricing-section">
-<div class="circle4"></div>
 
-
-    <h2>Choose Your Impact</h2>
-    <p class="subtitle">Your contribution fuels our mission and empowers individuals on their journey to mental wellness. Select a tier that resonates with you.</p>
-    <div class="pricing-container">
+  <div class="pricing-container">
         <!-- Card 1: Bronze -->
         <div class="pricing-card bronze">
             <h3 class="tier-name">Bronze Supporter</h3>

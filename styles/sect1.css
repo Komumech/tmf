@@ -464,7 +464,7 @@ body {
     color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
-    padding-top: 1rem; /* More vertical padding */
+    padding-top: 0rem; /* More vertical padding */
     padding-bottom: 1rem;
     margin-bottom: 0px; /* More vertical padding */
     align-items: center;
@@ -475,7 +475,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    /* Removed duplicate width and conflicting justify-content */
+    margin-bottom: -3rem;
     width: 100vw;
     gap: 1rem; /* Consistent gap between columns */
     max-width: 1200px;
@@ -498,7 +498,7 @@ body {
 }
 
 .footer-logo {
-    margin-bottom: 0rem; /* Adjusted margin for spacing */
+    margin-bottom: -4rem; /* Adjusted margin for spacing */
     height: 40px;
     filter: none; /* Remove filter for light background */
 }
@@ -599,7 +599,7 @@ body {
     /* margin-right: 20px; Removed as gap handles spacing */
 }
 
-
+ 
 
 /* =========================================
    9. RESPONSIVE FIXES (FOOTER & GENERAL)
@@ -619,6 +619,7 @@ body {
     .footer-col {
         min-width: 100%;
         padding: 0;
+        margin: 0px;
     }
 
     .footer-links ul {
@@ -731,11 +732,10 @@ body {
         padding-bottom: 1rem;
     }
     .footer-logo {
-        margin-bottom: 1rem; /* Ensure consistent spacing */
+        margin-bottom: 0rem; /* Ensure consistent spacing */
     }
     .footer-links ul {
-        margin-left: 0;
-        padding-top: 1rem;
+        margin: 0px;
     }
     .social-links {
         padding-bottom: 1rem;
