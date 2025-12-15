@@ -473,12 +473,11 @@ body {
 
 .footer-content {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Distribute columns */
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between; 
     /* Removed duplicate width and conflicting justify-content */
-    width: 80vw;
-    gap: 2rem; /* Consistent gap between columns */
+    width: 100vw;
+    gap: 1rem; /* Consistent gap between columns */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -495,12 +494,11 @@ body {
 .footer-info {
     flex: 1.5; /* Make the info column wider */
     padding-right: 40px;
-    /* flex: 1; Removed duplicate flex property */
-    min-width: 250px;
+    min-width: auto;
 }
 
 .footer-logo {
-    margin-bottom: 1rem; /* Adjusted margin for spacing */
+    margin-bottom: 0rem; /* Adjusted margin for spacing */
     height: 40px;
     filter: none; /* Remove filter for light background */
 }
@@ -517,13 +515,13 @@ body {
     color: #555; /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
-    margin-top: 0.3rem; /* More space above copyright */
-    padding-top: 1rem; /* Padding for separation */
+    margin-top: 1.7rem; /* More space above copyright */
+    padding-top: 0rem; /* Padding for separation */
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator line */
     width: 100%;
 }
 .copyright a {
-    color: var(--text-color); /* Match main footer text color */
+    color: rgb(13, 105, 186); /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
@@ -547,17 +545,18 @@ body {
 .footer-links ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-self: center;
+    justify-self: center;
+    flex-direction: row; /* Links in a row on desktop */
+    gap: 2rem; /* Space between links */
 }
 
 .footer-links a {
     text-decoration: none;
     color: var(--text-color); /* Dark color for links */
-    font-size: 1.1rem;
-    line-height: 1.7rem;
+    font-size: 1rem; /* Slightly smaller for one line */
+    line-height: 1.5;
     width: fit-content;
 }
 
@@ -585,8 +584,10 @@ body {
 
 /* --- Social Media --- */
 .social-links {
-    margin-top: 1.5rem; /* Slightly reduced margin */
+    margin-top: 0; /* Reset margin for new layout */
     display: flex;
+    align-self: center;
+    justify-self: center;
     gap: 15px; /* Spacing between social icons */
     flex-direction: row;
 }
@@ -621,7 +622,9 @@ body {
     }
 
     .footer-links ul {
-        gap: 0.2rem;
+        flex-direction: column; /* Stack links on mobile */
+        gap: 0.5rem;
+        align-items: center; /* Center links on mobile */
     }
     .footer-links ul li a {
         justify-self: left;
