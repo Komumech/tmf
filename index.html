@@ -133,6 +133,73 @@
         max-width: 90vw;
 }
 }
+
+/* Styles for the Hero Image Slider */
+.hero-slider {
+    width: 45vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-slider .slide {
+    display: none; /* Hide all slides by default */
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+    text-align: center; /* Center the image within the slide */
+    justify-content: center;
+    width: 100vw;
+}
+
+.hero-slider .slide.active-slide {
+    display: block; /* Show only the active slide */
+
+}
+
+.hero-slider .slide .top-img {
+    margin-top: 0rem;
+    margin-bottom: 0.4rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    object-fit: cover;
+    justify-self: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.hero-slider .slider-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-slider .slider-nav:hover { 
+    background: white; 
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-slider .slider-nav.prev { left: 0px; }
+.hero-slider .slider-nav.next { right: 0px; }
+
+@media (max-width: 768px){
+.hero-slider .slider-nav.prev { left: -100px; }
+.hero-slider .slider-nav.next { right: -100px; }
+}
 </style>
 <body>
     <div class="navbar">
@@ -164,14 +231,21 @@
             </p>
             <button class="cta-btn">Learn More</button>
         </div>
-        <div class="image">
+        <div class="hero-slider">
             <div class="circle"></div>
             <div class="circle2"></div>
             <div class="circle3"></div>
-            <div class="img-sect2">
-           <img src="images/img7.jpg" alt="Vision image" class="top-img img2">
+            <div class="slide active-slide">
+                <img src="images/img7.jpg" alt="Vision image 1" class="top-img img2">
             </div>
-
+            <div class="slide">
+                <img src="images/img2.png" alt="Vision image 2" class="top-img img2">
+            </div>
+            <div class="slide">
+                <img src="images/img4.jpg" alt="Vision image 3" class="top-img img2">
+            </div>
+            <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
@@ -346,32 +420,6 @@
         </div>
     </footer>
 
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Image Slider for the HERO section ---
-            const heroImageElement = document.querySelector('.sect1 .img2');
-            if (heroImageElement) {
-                // Add the paths to your images here
-                const images = [
-                    'images/img2.png',
-                    'images/img6.jpg', // Example: replace with your image
-                    'images/img4.jpg'  // Example: replace with your image
-                ];
-                let currentHeroIndex = 0;
-
-                setInterval(() => {
-                    currentHeroIndex = (currentHeroIndex + 1) % images.length;
-                    // Add a fade effect for a smoother transition
-                    heroImageElement.style.opacity = 0;
-                    setTimeout(() => {
-                        heroImageElement.src = images[currentHeroIndex];
-                        heroImageElement.style.opacity = 1;
-                    }, 500); // This timeout should be less than the interval
-                }, 7000); // Change image every 7 seconds
-            }
-        });
-</script>
-
     <script>
         // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', () => {
@@ -391,6 +439,28 @@
             });
             elementsToAnimate.forEach(element => {
                 observer.observe(element);
+            });
+
+            // --- Hero Slider Logic ---
+            const heroSlides = document.querySelectorAll('.hero-slider .slide');
+            const heroNextBtn = document.querySelector('.hero-slider .next');
+            const heroPrevBtn = document.querySelector('.hero-slider .prev');
+            let heroCurrentSlide = 0;
+
+            function showHeroSlide(index) {
+                heroSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active-slide', i === index);
+                });
+            }
+
+            heroNextBtn.addEventListener('click', () => {
+                heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides.length;
+                showHeroSlide(heroCurrentSlide);
+            });
+
+            heroPrevBtn.addEventListener('click', () => {
+                heroCurrentSlide = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
+                showHeroSlide(heroCurrentSlide);
             });
         });
 

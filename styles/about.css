@@ -11,6 +11,7 @@
     padding-bottom: 0.5rem;
 }
 .about-white-sect{
+  margin-top: 4rem;
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0);
