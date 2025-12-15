@@ -464,8 +464,9 @@ body {
     color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
-    padding-top: 3rem; /* More vertical padding */
-    padding-bottom: 2rem; /* More vertical padding */
+    padding-top: 1rem; /* More vertical padding */
+    padding-bottom: 1rem;
+    margin-bottom: 0px; /* More vertical padding */
     align-items: center;
     position: relative; /* Keep relative for z-index if needed */
 }
@@ -516,7 +517,7 @@ body {
     color: #555; /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
-    margin-top: 3rem; /* More space above copyright */
+    margin-top: 0.3rem; /* More space above copyright */
     padding-top: 1rem; /* Padding for separation */
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator line */
     width: 100%;
