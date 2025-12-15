@@ -461,7 +461,7 @@ body {
    8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: var(--circle-color); /* Use a light grey for a professional look */
+    background-color: var(--text-color); /* Use a light grey for a professional look */
     color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
@@ -488,7 +488,7 @@ body {
     min-width: 250px;
     flex: 1;
     padding: 0 10px;
-    margin-bottom: 0; /* Removed negative margin */
+    margin-bottom: -1.3rem; /* Removed negative margin */
 }
 
 /* --- Logo & Info Column --- */
@@ -522,7 +522,7 @@ body {
     width: 100%;
 }
 .copyright a {
-    color: rgb(110, 58, 125); /* Match main footer text color */
+    color: rgb(99, 97, 97); /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
