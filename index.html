@@ -22,7 +22,7 @@
   justify-content: space-between;
   gap: 40px;
   padding: 30px 20px;
-  margin-top: 5rem;
+  margin-top: 0rem;
   background-image: url("/images/img5.png");
   width: 100vw;
   box-sizing: border-box;
@@ -87,6 +87,7 @@
 .bio{
     font-size: 1.2rem;
     line-height: 1.5rem;
+    font-weight: 400;
     max-width: 60vw;
 }
 .team-member.active {
@@ -113,7 +114,7 @@
         flex-direction: column;
     }
     .meet-wrapper h2{
-       
+       margin-left: -8rem;
     }
     .bio{
         max-width: 90vw;
@@ -155,7 +156,7 @@
             <div class="circle2"></div>
             <div class="circle3"></div>
             <div class="img-sect2">
-            <img src="images/img6.jpg" class="top-img" alt="Illustration of mental wellness">
+           <img src="images/img7.jpg" alt="Vision image" class="top-img img2">
             </div>
 
         </div>
@@ -309,11 +310,8 @@
         <div class="footer-content">
             <div class="footer-col footer-info">
                 <img src="images/logo.jpg" class="footer-logo" alt="DHCEF Logo">
-                <p class="foundation-mission">
-               </p>
            </div>
             <div class="footer-col footer-links">
-                <h3>Quick Links</h3>
                 <ul>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Our Services</a></li>
@@ -331,11 +329,35 @@
                     <a href="#" aria-label="LinkedIn"><i class="icon fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-                            <p class="copyright">&copy; 2025 DHCEF Foundation. All rights reserved. By <a href="https://komutheme2.vercel.app/">KomuMech</a></p>
+                            <p class="copyright">&copy; 2025 DHCEF Foundation. All rights reserved. <br>By <a href="https://komutheme2.vercel.app/">KomuMech</a></p>
         </div>
     </footer>
 
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Image Slider for the HERO section ---
+            const heroImageElement = document.querySelector('.sect1 .img2');
+            if (heroImageElement) {
+                // Add the paths to your images here
+                const images = [
+                    'images/img2.png',
+                    'images/img6.jpg', // Example: replace with your image
+                    'images/img4.jpg'  // Example: replace with your image
+                ];
+                let currentHeroIndex = 0;
 
+                setInterval(() => {
+                    currentHeroIndex = (currentHeroIndex + 1) % images.length;
+                    // Add a fade effect for a smoother transition
+                    heroImageElement.style.opacity = 0;
+                    setTimeout(() => {
+                        heroImageElement.src = images[currentHeroIndex];
+                        heroImageElement.style.opacity = 1;
+                    }, 500); // This timeout should be less than the interval
+                }, 7000); // Change image every 7 seconds
+            }
+        });
+</script>
 
     <script>
         // Intersection Observer for scroll animations
