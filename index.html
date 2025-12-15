@@ -27,7 +27,20 @@
   width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
 }
+.meet-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.137); /* Adjust the '0.6' (60% opacity) value to control darkness */
+    z-index: 1; /* Ensures the overlay is above the background image */
+}
+
 .meet-wrapper h2{
     font-size: 2.5rem;
     font-weight: 500;
