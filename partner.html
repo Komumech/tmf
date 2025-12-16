@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="styles/sect1.css">
     <style>
         /* Styles for the "What We Do" slider */
-
+         .sect1{
+            padding-bottom: 0px;
+            margin-bottom: 4rem;
+         }
         .what-we-do-slider {
             padding-left: 1rem;
             position: relative;
@@ -266,6 +269,12 @@
         .pricing-card.diamond .cta-btn { background-color: var(--primary-color); color: #000; }
         .pricing-card.diamond .cta-btn:hover { background-color: #55d4a3; }
 
+        /* Tier 6: Legacy (New) */
+        .pricing-card.legacy { border-top-color: var(--accent-color); }
+        .pricing-card.legacy .price, .pricing-card.legacy ul i { color: var(--accent-color); }
+        .pricing-card.legacy .cta-btn { background-color: var(--accent-color); color: #fff; }
+        .pricing-card.legacy .cta-btn:hover { background-color: #9e4a3d; }
+
         /* --- Background Decorative Circles --- */
         .pricing-section {
             position: relative;
@@ -428,64 +437,72 @@ Your contribution fuels our mission and empowers individuals on their journey to
 <section class="pricing-section">
 
   <div class="pricing-container">
-        <!-- Card 1: Bronze -->
+        <!-- Tier 1: Community Ally -->
         <div class="pricing-card bronze">
-            <h3 class="tier-name">Bronze Supporter</h3>
-            <div class="price">$10 <span>/month</span></div>
+            <h3 class="tier-name">Community Ally</h3>
+            <div class="price">N5,000 <span>/month</span></div>
             <ul>
-                <li><i class="fas fa-check-circle"></i>Contribute to resource materials.</li>
-                <li><i class="fas fa-check-circle"></i>Support our community newsletter.</li>
-                <li><i class="fas fa-check-circle"></i>Receive quarterly updates.</li>
+                <li><i class="fas fa-check-circle"></i>Provides educational materials for one person.</li>
+                <li><i class="fas fa-check-circle"></i>Supports our digital awareness campaigns.</li>
+                <li><i class="fas fa-check-circle"></i>Quarterly impact newsletter.</li>
             </ul>
             <a href="#" class="cta-btn">Donate Now</a>
         </div>
-        <!-- Card 2: Silver -->
+        <!-- Tier 2: Hope Builder -->
         <div class="pricing-card silver">
-            <h3 class="tier-name">Silver Partner</h3>
-            <div class="price">$25 <span>/month</span></div>
+            <h3 class="tier-name">Hope Builder</h3>
+            <div class="price">N10,000 <span>/month</span></div>
             <ul>
-                <li><i class="fas fa-check-circle"></i>Fund a virtual support group session.</li>
-                <li><i class="fas fa-check-circle"></i>Help maintain our helpline.</li>
-                <li><i class="fas fa-check-circle"></i>All Bronze benefits.</li>
+                <li><i class="fas fa-check-circle"></i>Funds a seat in a virtual support group.</li>
+                <li><i class="fas fa-check-circle"></i>Helps maintain our 24/7 support helpline.</li>
+                <li><i class="fas fa-check-circle"></i>Includes all Ally benefits.</li>
             </ul>
-            <a href="#" class="cta-btn">Donate Now</a>
+            <a href="#" class="cta-btn">Build Hope</a>
         </div>
-        <!-- Card 3: Gold (Featured) -->
+        <!-- Tier 3: Wellness Champion (Featured) -->
         <div class="pricing-card gold">
             <div class="featured-badge">Most Popular</div>
-            <h3 class="tier-name">Gold Benefactor</h3>
-            <div class="price">$50 <span>/month</span></div>
+            <h3 class="tier-name">Wellness Champion</h3>
+            <div class="price">N20,000 <span>/month</span></div>
             <ul>
-                <li><i class="fas fa-check-circle"></i>Sponsor an individual's counseling.</li>
-                <li><i class="fas fa-check-circle"></i>Support a community workshop.</li>
-                <li><i class="fas fa-check-circle"></i>All Silver benefits.</li>
+                <li><i class="fas fa-check-circle"></i>Sponsors a full counseling session for one person.</li>
+                <li><i class="fas fa-check-circle"></i>Supports a local community wellness workshop.</li>
+                <li><i class="fas fa-check-circle"></i>Includes all Hope Builder benefits.</li>
             </ul>
-            <a href="#" class="cta-btn">Donate Now</a>
+            <a href="#" class="cta-btn">Be a Champion</a>
         </div>
-        <!-- Card 4: Platinum -->
+        <!-- Tier 4: Healing Guardian -->
         <div class="pricing-card platinum">
-            <h3 class="tier-name">Platinum Guardian</h3>
-            <div class="price">$100 <span>/month</span></div>
+            <h3 class="tier-name">Healing Guardian</h3>
+            <div class="price">N50,000 <span>/month</span></div>
             <ul>
-                <li><i class="fas fa-check-circle"></i>Fund a full mental health program.</li>
-                <li><i class="fas fa-check-circle"></i>Enable professional development.</li>
-                <li><i class="fas fa-check-circle"></i>All Gold benefits.</li>
+                <li><i class="fas fa-check-circle"></i>Funds a complete short-term therapy plan.</li>
+                <li><i class="fas fa-check-circle"></i>Enables training for one volunteer facilitator.</li>
+                <li><i class="fas fa-check-circle"></i>Includes all Champion benefits.</li>
             </ul>
-            <a href="#" class="cta-btn">Donate Now</a>
+            <a href="#" class="cta-btn">Become a Guardian</a>
         </div>
-
-
-
-        <!-- Card 5: Diamond -->
+        <!-- Tier 5: Visionary Leader -->
         <div class="pricing-card diamond">
-            <h3 class="tier-name">Diamond Visionary</h3>
-            <div class="price">$250+ <span>/month</span></div>
+            <h3 class="tier-name">Visionary Leader</h3>
+            <div class="price">N100,000+ <span>/month</span></div>
             <ul>
-                <li><i class="fas fa-check-circle"></i>Drive long-term strategic initiatives.</li>
-                <li><i class="fas fa-check-circle"></i>Champion new program creation.</li>
-                <li><i class="fas fa-check-circle"></i>All Platinum benefits.</li>
+                <li><i class="fas fa-check-circle"></i>Powers a long-term strategic initiative.</li>
+                <li><i class="fas fa-check-circle"></i>Launches a new support program in a community.</li>
+                <li><i class="fas fa-check-circle"></i>Personalized annual impact report.</li>
             </ul>
-            <a href="#" class="cta-btn">Donate Now</a>
+            <a href="#" class="cta-btn">Lead the Way</a>
+        </div>
+        <!-- Tier 6: Legacy Patron -->
+        <div class="pricing-card legacy">
+            <h3 class="tier-name">Legacy Patron</h3>
+            <div class="price">N200,000+ <span>/month</span></div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Underwrites a major community program.</li>
+                <li><i class="fas fa-check-circle"></i>Sustains core operations for a full quarter.</li>
+                <li><i class="fas fa-check-circle"></i>Named recognition in our annual report.</li>
+            </ul>
+            <a href="#" class="cta-btn">Leave a Legacy</a>
         </div>
     </div>
 </section>

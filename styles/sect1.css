@@ -4,9 +4,11 @@
 :root {
     --primary-color: #F58634;       /* Orange */
     --secondary-color: #104E3A;      /* Deep Green */
-    --neutral-background: #E9E1D4;  /* Clay Ivory */
+    --neutral-background: #d9d1d1;  /* Clay Ivory */
     --accent-color: #B35647;        /* Burnt Rose */
-    --text-color: #2A2A2A;          /* Charcoal Black */
+    --text-color: #000000;
+    --black: #000000;          /* Charcoal Black */
+    --copyright-a: #232020; /* Slightly lighter for copyright links */
 }
 
 /* Base Body Style */
@@ -462,7 +464,7 @@ body {
    ========================================= */
 .main-footer {
     background-color: var(--secondary-color); /* Use a light grey for a professional look */
-    color: var(--text-color); /* Use the default dark text color */
+    color: var(--black); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
     padding-top: 0rem; /* More vertical padding */
@@ -513,7 +515,7 @@ body {
 
 .copyright {
     font-size: 0.9rem;
-    color: black; /* Subtler color for copyright */
+    color: var(--black); /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
     margin-top: 1.7rem; /* More space above copyright */
@@ -522,7 +524,7 @@ body {
     width: 100%;
 }
 .copyright a {
-    color: rgb(99, 97, 97); /* Match main footer text color */
+    color: var(--copyright-a); /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
@@ -530,7 +532,7 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem; /* Slightly reduced margin */
-    color: black; /* Dark color for headings */
+    color: var(--black); /* Dark color for headings */
     position: relative;
 }
 
@@ -555,7 +557,7 @@ body {
 
 .footer-links a {
     text-decoration: none;
-    color: black; /* Dark color for links */
+    color:var(--black); /* Dark color for links */
     font-size: 1rem; /* Slightly smaller for one line */
     line-height: 1.5;
     width: fit-content;
@@ -578,7 +580,7 @@ body {
 
 .footer-contact .icon {
     margin-right: 10px;
-    color: black; /* Accent color for icons */
+    color: var(--black); /* Accent color for icons */
     width: 20px; /* Fixed width for alignment */
     text-align: center;
 }
@@ -595,7 +597,7 @@ body {
 
 .social-links a {
     text-decoration: none;
-    color: black; /* Dark color for social icons */
+    color: var(--black); /* Dark color for social icons */
     font-size: 1.1rem;
     /* margin-right: 20px; Removed as gap handles spacing */
 }
@@ -838,9 +840,5 @@ body {
         font-size: 0.9rem;
     }
 
-    /* Ensure footer text colors are still readable on small screens */
-    .footer-col h3, .footer-links a, .footer-contact p, .foundation-mission, .copyright {
-        color: var(--text-color); /* Maintain dark text on light background */
-    }
-    .footer-contact .icon { color: var(--primary-color); }
+
 }
