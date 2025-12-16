@@ -422,19 +422,47 @@ Your contribution fuels our mission and empowers individuals on their journey to
             <div class="circle2"></div>
             <div class="circle3"></div>
             <div class="slide active-slide">
-                <img src="images/img7.png" alt="Vision image 1" class="top-img img2">
+                <img src="images/img15.png" alt="Vision image 1" class="top-img img2">
             </div>
             <div class="slide">
-                <img src="images/img6.jpg" alt="Vision image 2" class="top-img img2">
+                <img src="images/img14.png" alt="Vision image 2" class="top-img img2">
             </div>
             <div class="slide">
-                <img src="images/img11.jpeg" alt="Vision image 3" class="top-img img2">
+                <img src="images/img13.png" alt="Vision image 3" class="top-img img2">
             </div>
             <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
-<section class="pricing-section">
+<section class="partner-intro-section">
+    <h2>Become an Partner</h2>
+    <p>
+        We invite individuals and organizations to become angel partners with DHCEF. 
+        Your partnership, whether financial, spiritual, or through professional counseling 
+        support, is crucial to our mission. Your contributions will directly enable us to:
+    </p>
+    <ul>
+        <li><i class="fas fa-check"></i>Reach and support more individuals in critical need of mental health services.</li>
+        <li><i class="fas fa-check"></i>Improve the quality and accessibility of our facilities and programs.</li>
+        <li><i class="fas fa-check"></i>Strengthen our team's capacity through ongoing training and development.</li>
+    </ul>
+</section>
+
+<style>
+    .partner-intro-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .partner-intro-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary-color); }
+    .partner-intro-section p { font-size: 1.1rem; line-height: 1.7; color: #555; }
+    .partner-intro-section ul { list-style: none; padding: 0; margin-top: 2rem; text-align: left; display: inline-block; }
+    .partner-intro-section ul li { font-size: 1.05rem; margin-bottom: 1rem; display: flex; align-items: flex-start; }
+    .partner-intro-section ul li i { color: var(--primary-color); margin-right: 15px; margin-top: 5px; }
+</style>
+
+<section class="pricing-section" id="donation-tiers">
 
   <div class="pricing-container">
         <!-- Tier 1: Community Ally -->
@@ -585,6 +613,27 @@ Your contribution fuels our mission and empowers individuals on their journey to
             }
         });
 
+        // --- Hero Slider Logic ---
+        const heroSlides = document.querySelectorAll('.hero-slider .slide');
+        const heroNextBtn = document.querySelector('.hero-slider .next');
+        const heroPrevBtn = document.querySelector('.hero-slider .prev');
+        let heroCurrentSlide = 0;
+
+        function showHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                slide.classList.toggle('active-slide', i === index);
+            });
+        }
+
+        heroNextBtn.addEventListener('click', () => {
+            heroCurrentSlide = (heroCurrentSlide + 1) % heroSlides.length;
+            showHeroSlide(heroCurrentSlide);
+        });
+
+        heroPrevBtn.addEventListener('click', () => {
+            heroCurrentSlide = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
+            showHeroSlide(heroCurrentSlide);
+        });
         // "What We Do" Slider Logic
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.what-we-do-slider .slide');

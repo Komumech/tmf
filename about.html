@@ -156,7 +156,7 @@
                 <p class="header">Professional Treatment</p>
                 <p class="under">We provide professional and confidential counseling services to individuals, couples, and families facing mental health challenges.</p>
             </div>
-            <img src="images/img10.png" alt="Counseling Session">
+            <img src="images/img18.png" alt="Counseling Session">
         </div>
         <button class="slider-nav prev"><i class="fas fa-chevron-left"></i></button>
         <button class="slider-nav next"><i class="fas fa-chevron-right"></i></button>
@@ -261,6 +261,37 @@
                 observer.observe(element);
             });
 
+            // "What We Do" Slider Logic
+            const whatWeDoSlides = document.querySelectorAll('.what-we-do-slider .slide');
+            const whatWeDoNextBtn = document.querySelector('.what-we-do-slider .next');
+            const whatWeDoPrevBtn = document.querySelector('.what-we-do-slider .prev');
+            let whatWeDoCurrentSlide = 0;
+
+            // Find the initial active slide
+            whatWeDoSlides.forEach((slide, index) => {
+                if (slide.classList.contains('active-slide')) {
+                    whatWeDoCurrentSlide = index;
+                }
+            });
+
+            function showWhatWeDoSlide(index) {
+                whatWeDoSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active-slide', i === index);
+                });
+            }
+
+            if (whatWeDoNextBtn && whatWeDoPrevBtn) {
+                whatWeDoNextBtn.addEventListener('click', () => {
+                    whatWeDoCurrentSlide = (whatWeDoCurrentSlide + 1) % whatWeDoSlides.length;
+                    showWhatWeDoSlide(whatWeDoCurrentSlide);
+                });
+
+                whatWeDoPrevBtn.addEventListener('click', () => {
+                    whatWeDoCurrentSlide = (whatWeDoCurrentSlide - 1 + whatWeDoSlides.length) % whatWeDoSlides.length;
+                    showWhatWeDoSlide(whatWeDoCurrentSlide);
+                });
+            }
+
             // Automatic image slider for .sect2-img
             const imageElement = document.querySelector('.sect2-img .img2');
             if (imageElement) {
@@ -282,30 +313,6 @@
                     }, 500); // This timeout should be less than the interval
                 }, 7000); // Change image every 7 seconds
             }
-        });
-
-        // "What We Do" Slider Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.what-we-do-slider .slide');
-            const nextBtn = document.querySelector('.slider-nav.next');
-            const prevBtn = document.querySelector('.slider-nav.prev');
-            let currentSlide = 0;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active-slide', i === index);
-                });
-            }
-
-            nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            });
-
-            prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            });
         });
 
         // Navbar scroll shadow

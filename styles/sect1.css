@@ -464,7 +464,7 @@ body {
    ========================================= */
 .main-footer {
     background-color: var(--secondary-color); /* Use a light grey for a professional look */
-    color: var(--black); /* Use the default dark text color */
+    color: #f0f0f0; /* Use a light color for dark background */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
     padding-top: 0rem; /* More vertical padding */
@@ -509,22 +509,22 @@ body {
 .foundation-mission {
     font-size: 0.95rem;
     line-height: 1.5;
+    color: #f0f0f0;
     margin-bottom: 1.5rem;
-    color: var(--text-color); /* Slightly lighter dark text for mission statement */
 }
 
 .copyright {
     font-size: 0.9rem;
-    color: var(--black); /* Subtler color for copyright */
+    color: #ccc; /* Subtler color for copyright */
     line-height: 1.4rem;
     text-align: center;
     margin-top: 1.7rem; /* More space above copyright */
     padding-top: 0rem; /* Padding for separation */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator line */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator line */
     width: 100%;
 }
 .copyright a {
-    color: var(--copyright-a); /* Match main footer text color */
+    color: #f0f0f0; /* Match main footer text color */
     text-decoration: none;
 }
 /* --- Links & Contact Columns --- */
@@ -532,7 +532,7 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem; /* Slightly reduced margin */
-    color: var(--black); /* Dark color for headings */
+    color: #fff; /* White for headings */
     position: relative;
 }
 
@@ -557,7 +557,7 @@ body {
 
 .footer-links a {
     text-decoration: none;
-    color:var(--black); /* Dark color for links */
+    color: #f0f0f0; /* Light color for links */
     font-size: 1rem; /* Slightly smaller for one line */
     line-height: 1.5;
     width: fit-content;
@@ -580,7 +580,7 @@ body {
 
 .footer-contact .icon {
     margin-right: 10px;
-    color: var(--black); /* Accent color for icons */
+    color: #f0f0f0; /* Accent color for icons */
     width: 20px; /* Fixed width for alignment */
     text-align: center;
 }
@@ -597,7 +597,7 @@ body {
 
 .social-links a {
     text-decoration: none;
-    color: var(--black); /* Dark color for social icons */
+    color: #f0f0f0; /* Light color for social icons */
     font-size: 1.1rem;
     /* margin-right: 20px; Removed as gap handles spacing */
 }
@@ -609,7 +609,7 @@ body {
    ========================================= */
 @media (max-width: 900px) {
     .logo {
-        height: 2.8rem;
+        height: 7rem;
     }
     .footer-content {
         flex-direction: column;
