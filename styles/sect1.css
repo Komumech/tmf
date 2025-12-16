@@ -2,11 +2,11 @@
    1. VARIABLES & SETUP
    ========================================= */
 :root {
-    /* Updated color variable: #66eeb8 (Bright Green/Teal) */
-    --circle-color: #F58634; 
-    --text-color:#104E3A;
-    --background-color-light: rgb(236, 236, 236);
-    --secondary-color: #f7f7f7; /* Fr contrast/stat background */
+    --primary-color: #F58634;       /* Orange */
+    --secondary-color: #104E3A;      /* Deep Green */
+    --neutral-background: #E9E1D4;  /* Clay Ivory */
+    --accent-color: #B35647;        /* Burnt Rose */
+    --text-color: #2A2A2A;          /* Charcoal Black */
 }
 
 /* Base Body Style */
@@ -136,7 +136,7 @@ body {
 
 /* --- CTA Button --- */
 .cta-btn {
-    background-color: var(--circle-color);
+    background-color: var(--primary-color);
     color: #000;
     font-family: "Raleway", sans-serif;
     border: 1px black solid;
@@ -187,8 +187,8 @@ body {
 /* =========================================
    5. ABSTRACT ANIMATED CIRCLES
    ========================================= */
-.circle, .circle2, .circle3, .circle4, .circle5 { 
-    background-color: var(--circle-color) !important;
+.circle, .circle2, .circle3, .circle4, .circle5 {
+    background-color: var(--primary-color) !important;
     position: absolute;
     z-index: -1; 
     will-change: border-radius, transform;
@@ -269,7 +269,7 @@ body {
    7. SECTION 2 & 3 (Vission, Mission, Impact) STYLES
    ========================================= */
 .grey-sect {
-    background-color: var(--background-color-light);
+    background-color: var(--neutral-background);
     width: 100vw;
     min-height: 80vh; 
     align-items: center;
@@ -445,7 +445,7 @@ body {
 }
 
 .impact-txt {
-    background-color: var(--circle-color);
+    background-color: var(--primary-color);
     border: 1px solid black;
     font-size: 1rem;
     max-width: 100%;
@@ -461,7 +461,7 @@ body {
    8. FOOTER STYLES
    ========================================= */
 .main-footer {
-    background-color: var(--text-color); /* Use a light grey for a professional look */
+    background-color: var(--secondary-color); /* Use a light grey for a professional look */
     color: var(--text-color); /* Use the default dark text color */
     font-family: 'Raleway', sans-serif;
     width: 100vw;
@@ -539,7 +539,7 @@ body {
     display: block;
     width: 30px;
     height: 3px;
-    background-color: var(--circle-color); /* Use accent color for underline */
+    background-color: var(--primary-color); /* Use accent color for underline */
     margin-top: 5px;
 }
 
@@ -564,7 +564,7 @@ body {
 .footer-links a:hover {
     color: rgb(59, 54, 54); /* Accent color on hover */
     transition: color 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 1px solid var(--circle-color); /* Accent color underline */
+    border-bottom: 1px solid var(--primary-color); /* Accent color underline */
 }
 
 /* --- Contact Column --- */
@@ -842,5 +842,5 @@ body {
     .footer-col h3, .footer-links a, .footer-contact p, .foundation-mission, .copyright {
         color: var(--text-color); /* Maintain dark text on light background */
     }
-    .footer-contact .icon { color: var(--text-color); }
+    .footer-contact .icon { color: var(--primary-color); }
 }

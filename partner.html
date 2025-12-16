@@ -115,7 +115,7 @@
         .pricing-section {
             margin-top: 3rem;
             padding: 6rem 2rem;
-            background-color: #f9f9f9;
+            background-color: var(--neutral-background);
             position: relative;
             text-align: center;
         }
@@ -261,9 +261,9 @@
         .pricing-card.platinum .cta-btn:hover { background-color: #d1d0ce; }
 
         /* Tier 5: Diamond (Using site's accent color) */
-        .pricing-card.diamond { border-top-color: var(--circle-color); }
-        .pricing-card.diamond .price, .pricing-card.diamond ul i { color: var(--circle-color); }
-        .pricing-card.diamond .cta-btn { background-color: var(--circle-color); color: #000; }
+        .pricing-card.diamond { border-top-color: var(--primary-color); }
+        .pricing-card.diamond .price, .pricing-card.diamond ul i { color: var(--primary-color); }
+        .pricing-card.diamond .cta-btn { background-color: var(--primary-color); color: #000; }
         .pricing-card.diamond .cta-btn:hover { background-color: #55d4a3; }
 
         /* --- Background Decorative Circles --- */
@@ -279,7 +279,7 @@
             position: absolute;
             border-radius: 50%;
             z-index: 0;
-            background-color: var(--circle-color);
+            background-color: var(--primary-color);
             opacity: 0.1;
         }
         .pricing-bg-circle.circle-1 { width: 250px; height: 250px; top: 10%; left: -80px; }

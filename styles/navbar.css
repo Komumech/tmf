@@ -55,9 +55,9 @@ body{
     font-weight: 400;
 }
 .nav-links a:hover {
-    color: #66eeb8; /* Using the variable from sect1.css */
+    color: #F58634; /* Using the variable from sect1.css */
     transition: color 0.3s ease;
-    border-bottom: 2px solid #66eeb8;
+    border-bottom: 2px solid #F58634;
     padding-bottom: 5px;
 }
 
