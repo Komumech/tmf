@@ -291,7 +291,6 @@ body {
 
 .white-sect {
     background-color: transparent;
-    width: 100vw;
     min-height: 80vh; 
     align-items: center;
     display: flex;
@@ -377,7 +376,6 @@ body {
     background-size: cover;
     /* backdrop-filter: brightness(40%); <--- Optional: you can remove this or keep it for an additional effect */
     background-position: top center;
-    width: 100vw;
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -466,7 +464,6 @@ body {
     background-color: var(--secondary-color); /* Use a light grey for a professional look */
     color: #f0f0f0; /* Use a light color for dark background */
     font-family: 'Raleway', sans-serif;
-    width: 100vw;
     padding-top: 0rem; /* More vertical padding */
     padding-bottom: 1rem;
     margin-bottom: 0px; /* More vertical padding */
@@ -502,7 +499,7 @@ body {
 
 .footer-logo {
     margin-bottom: -4rem; /* Adjusted margin for spacing */
-    height: 7.2rem;
+    height: 3.2rem;
     filter: none; /* Remove filter for light background */
 }
 

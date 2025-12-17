@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>TMF - About Us</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/sect1.css">
@@ -113,6 +114,8 @@
         }
 
         /* Styles for the Contact Form */
+
+
         .contact-form {
             width: 100%;
             display: flex;
@@ -163,15 +166,7 @@
             align-self: flex-start;
             margin-top: 1rem;
         }
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-            }
-            .contact-form input,
-            .contact-form textarea {
-                width: 85vw;
-            }
-        }
+
 
         /* Styles for Contact Details Section */
         .contact-sect2 {
@@ -179,6 +174,7 @@
             padding: 4rem 2rem;
             background-color: var(--neutral-background); /* A light grey background to separate it */
             text-align: center;
+            margin-bottom: 9rem;
         }
         .contact-details h3 {
             font-size: 2.2rem;
@@ -231,6 +227,21 @@
             font-size: 1.2rem;
             font-weight: 500;
             margin: 0 0 0.2rem 0;
+        }
+
+
+                @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+            .contact-form input,
+            .contact-form textarea {
+                width: 85vw;
+            }
+            .contact-sect2{
+            margin-bottom: 5rem;
+        }
+
         }
     </style>
 </head>
@@ -320,7 +331,7 @@
         <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-col footer-info">
-                <img src="images/logo.png" class="footer-logo" alt="DHCEF Logo">
+                <img src="images/logo2.png" class="footer-logo" alt="DHCEF Logo">
             </div>
             <div class="footer-col footer-links">
                 <ul>
