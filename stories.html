@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>TMF - Success Stories</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/sect1.css">
+    <link rel="stylesheet" href="styles/stories.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-div">
+            <a href="index.html"><img src="images/logo.png" class="logo" alt="DHCEF Logo"></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="about.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="#"><i class="fas fa-concierge-bell"></i><span>What We Do</span></a>
+            <a href="stories.html"><i class="fas fa-book-open"></i><span>Success Stories</span></a>
+            <a href="partner.html"><i class="fas fa-handshake"></i><span>Partner With Us</span></a>
+            <a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a>
+        </div>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <section class="stories-hero">
+        <h1>Voices of Hope</h1>
+        <p>Read the inspiring stories of individuals who have found healing, strength, and renewed purpose through our programs and community support.</p>
+    </section>
+
+
+    <div class="white-sect">
+        <div class="circle5"></div>
+        <div class="sect2">
+            <div class="sect2-txt">
+                <p class="sect2-headline">
+                    <span class="large">Sarah J.</span>
+                    <span class="sect2-undertxt">
+                "I was lost in a fog of anxiety for years. The Mission Safe House didn't just give me tools to cope; they gave me a community that understood. For the first time, I don't feel alone. I'm not just surviving anymore, I'm thriving."
+                    </span>
+                    <br>
+                </p>
+            </div>
+            <div class="sect2-img">
+                <img src="images/img19.png" alt="Mission image" class="img2">
+            </div>
+        </div>
+    </div>
+
+    
+    <section class="stories-container">
+        <!-- Story 1 -->
+        <div class="story-card">
+            <i class="fas fa-quote-left"></i>
+            <p class="story-text">
+                "I was lost in a fog of anxiety for years. The Mission Safe House didn't just give me tools to cope; they gave me a community that understood. For the first time, I don't feel alone. I'm not just surviving anymore, I'm thriving."
+            </p>
+            <p class="story-author">- Sarah J.</p>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-card featured">
+            <i class="fas fa-quote-left"></i>
+            <p class="story-text">
+                "After my service, the world felt like a battlefield I couldn't escape. The PTSD support group here saved my life. Sharing my story with others who've walked the same path has been the most crucial part of my healing journey."
+            </p>
+            <p class="story-author">- David M., Veteran</p>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="story-card">
+            <i class="fas fa-quote-left"></i>
+            <p class="story-text">
+                "The stigma around mental health in our community kept me silent for too long. DHCEF created a safe, faith-based space where I could be vulnerable and seek help without judgment. My faith and my mental health are now stronger together."
+            </p>
+            <p class="story-author">- Elizabeth A.</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-col footer-info">
+                <img src="images/logo2.png" class="footer-logo" alt="DHCEF Logo">
+            </div>
+            <div class="footer-col footer-links">
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">What We Do</a></li>
+                    <li><a href="partner.html">Support/Donate</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Get Involved</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="icon fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="icon fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="icon fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="icon fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 DHCEF Foundation. All rights reserved. <br>By <a href="https://komutheme2.vercel.app/">KomuMech</a></p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll(
+                '.img2, .sect2-headline'
+            );
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1
+            });
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Navbar scroll shadow
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            const update = () => {
+                if (window.scrollY > 10) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            };
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerIcon = hamburger.querySelector('i');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                hamburgerIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                hamburgerIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>

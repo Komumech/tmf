@@ -606,7 +606,7 @@ body {
    ========================================= */
 @media (max-width: 900px) {
     .logo {
-        height: 7rem;
+        height: 4.2rem;
     }
     .footer-content {
         flex-direction: column;
