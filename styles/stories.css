@@ -134,7 +134,7 @@
     .stories-hero { padding: 6rem 1rem 3rem 1rem; }
     .stories-container { padding: 3rem 1rem; }
     .stories-hero h1 { font-size: 2.5rem; }
-    .story-card .circle4{
-        display: block;
+    .story-card .circle4, .circle5{
+        display: none;
     }
 }
