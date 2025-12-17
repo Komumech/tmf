@@ -56,26 +56,28 @@
     z-index: 9;
     overflow: hidden;
     flex-direction: column;
-    overflow: visible;
     border-left: 5px solid var(--primary-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 .story-card .circle4{
     top: 0;
-    left: 20px;
+    left: 140px;
     height: 12rem;
     width: 12rem;
     opacity: 0.7;
+    position: relative;
+    margin-bottom: -12rem;
 }
 
 .story-card .circle5{
     top: 200px;
-    position: absolute;
     left: 150px;
     height: 10rem;
     width: 10rem;
     opacity: 0.7;
+    position: relative;
+    margin-bottom: -12rem;
 }
 .story-card:hover {
     transform: translateY(-8px);
