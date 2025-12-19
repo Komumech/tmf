@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,385 +15,8 @@
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/sect1.css">
-    <style>
-        /* Styles for the "What We Do" slider */
-         .sect1{
-            padding-bottom: 0px;
-            margin-bottom: 0rem;
-         }
-        .what-we-do-slider {
-            padding-left: 1rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70vw;
-            margin: 1rem auto 0;
-        }
-        .slide {
-            display: none; /* Hide all slides by default */
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            width: 100%;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-        .slide.active-slide {
-            display: grid; /* Show only the active slide */
-        }
-        .slide img {
-            height: 500px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .slider-nav {
-            position: absolute;
-            top: 50%;
-            z-index: 10;
-            transform: translateY(-50%); /* Vertical centering */
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border-radius: 50%;
-            width: 45px; /* Slightly larger */
-            height: 45px;
-            font-size: 20px; /* Adjusted for icon */
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-        .slider-nav:hover { 
-            background: white; 
-            transform: translateY(-50%) scale(1.1); /* Scale up on hover */
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-        }
-        .slider-nav.prev { left: -60px; } /* Increased spacing */
-        .slider-nav.next { right: -50px; } /* Increased spacing */
-        @keyframes fadeIn { from { opacity: 0.4; } to { opacity: 1; } }
+    <link rel="stylesheet" href="styles/partner.css">
 
-        /* Responsive styles for "What We Do" slider on mobile */
-        @media (max-width: 768px) {
-            .what-we-do-slider {
-                width: 90vw; /* Use more screen width */
-                padding-left: 0;
-            }
-            .large{
-                padding-bottom: 0px;
-                margin-bottom: 0px;
-            }
-            .slide {
-                grid-template-columns: 1fr; /* Stack image and text vertically */
-                gap: 1.5rem;
-                text-align: center;
-            }
-            .slide img {
-                height: 300px; /* Adjust image size for mobile */
-                width: 300px;
-                justify-self: center; /* Center the image */
-            }
-            .slider-nav {
-                width: 40px;
-                height: 40px;
-                bottom: 0; /* Move arrows to the bottom */
-                top: 65%;
-                transform: translateY(50%);
-            }
-            .slider-nav.prev { left: -10px; }
-            .slider-nav.next { right: -10px; }
-            .grey-sect{
-                margin-top: 5rem;
-            }
-            .circle4{
-                display: block;
-                margin-top: -5rem;
-                width: 10rem;
-                height: 10rem;
-            }
-        }
-
-        /* =========================================
-           12. PRICING/DONATION TIER STYLES
-           ========================================= */
-        .pricing-section {
-            margin-top: 3rem;
-            padding: 6rem 2rem;
-            background-color: var(--neutral-background);
-            position: relative;
-            text-align: center;
-        }
-
-        .pricing-section h2 {
-            font-size: 2.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        .pricing-section .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            max-width: 600px;
-            margin: 0 auto 4rem auto;
-        }
-
-        .pricing-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-            width: 280px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid transparent;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-
-        /* --- Card Header & Price --- */
-        .pricing-card .tier-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-card .price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-
-        .pricing-card .price span {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--text-color);
-        }
-
-        /* --- Features List --- */
-        .pricing-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .pricing-card ul li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        .pricing-card ul li i {
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* --- CTA Button --- */
-        .pricing-card .cta-btn {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-sizing: border-box;
-        }
-
-        /* --- Color Variations --- */
-        /* Tier 1: Bronze */
-        .pricing-card.bronze { border-top-color: #A97142; }
-        .pricing-card.bronze .price, .pricing-card.bronze ul i { color: #A97142; }
-        .pricing-card.bronze .cta-btn { background-color: #A97142; color: #fff; }
-        .pricing-card.bronze .cta-btn:hover { background-color: #8c5e38; }
-
-        /* Tier 2: Silver */
-        .pricing-card.silver { border-top-color: #cd7f32; }
-        .pricing-card.silver .price, .pricing-card.silver ul i { color: #cd7f32; }
-        .pricing-card.silver .cta-btn { background-color: #cd7f32; color: #fff; }
-        .pricing-card.silver .cta-btn:hover { background-color: #b8722d; }
-
-        /* Tier 3: Gold (Featured) */
-        .pricing-card.gold {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-top-color: #c0c0c0;
-        }
-        .pricing-card.gold .price, .pricing-card.gold ul i { color: #a0a0a0; }
-        .pricing-card.gold .cta-btn { background-color: #c0c0c0; color: var(--text-color); }
-        .pricing-card.gold .cta-btn:hover { background-color: #adadad; }
-
-        .featured-badge {
-            position: absolute;
-            top: -1px;
-            right: 20px;
-            background: #c0c0c0;
-            color: var(--text-color);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 5px 15px;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Tier 4: Platinum */
-        .pricing-card.platinum { border-top-color: #ffd700; }
-        .pricing-card.platinum .price, .pricing-card.platinum ul i { color: #e0bd00; }
-        .pricing-card.platinum .cta-btn { background-color: #ffd700; color: var(--text-color); }
-        .pricing-card.platinum .cta-btn:hover { background-color: #eabf00; }
-
-        /* Tier 5: Diamond (Using site's accent color) */
-        .pricing-card.diamond { border-top-color: var(--primary-color); }
-        .pricing-card.diamond .price, .pricing-card.diamond ul i { color: var(--primary-color); }
-        .pricing-card.diamond .cta-btn { background-color: var(--primary-color); color: #000; }
-        .pricing-card.diamond .cta-btn:hover { background-color: #55d4a3; }
-
-        /* Tier 6: Legacy (New) */
-        .pricing-card.legacy { border-top-color: #e5e4e2; }
-        .pricing-card.legacy .price, .pricing-card.legacy ul i { color: #9a9997; }
-        .pricing-card.legacy .cta-btn { background-color: #e5e4e2; color: var(--text-color); }
-        .pricing-card.legacy .cta-btn:hover { background-color: #d1d0ce; }
-
-        /* --- Background Decorative Circles --- */
-        .pricing-section {
-            position: relative;
-            overflow: hidden; /* Prevents circles from spilling out */
-        }
-        .pricing-section > * {
-            position: relative;
-            z-index: 1;
-        }
-        .pricing-bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            z-index: 0;
-            background-color: var(--primary-color);
-            opacity: 0.1;
-        }
-        .pricing-bg-circle.circle-1 { width: 250px; height: 250px; top: 10%; left: -80px; }
-        .pricing-bg-circle.circle-2 { width: 350px; height: 350px; bottom: -150px; right: -100px; }
-        .pricing-bg-circle.circle-3 { width: 120px; height: 120px; top: 25%; right: 10%; }
-
-
-        
-/* Styles for the Hero Image Slider */
-.hero-slider {
-    width: 45vw;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-slider .slide {
-    display: none; /* Hide all slides by default */
-    width: 100%;
-    animation: fadeIn 0.8s ease-in-out;
-    text-align: center; /* Center the image within the slide */
-    justify-content: center;
-    width: 100vw;
-}
-
-.hero-slider .slide.active-slide {
-    display: block; /* Show only the active slide */
-
-}
-
-.hero-slider .slide .top-img {
-    margin-top: 0rem;
-    margin-bottom: 0.4rem;
-    border-radius: 50%;
-    position: relative;
-    z-index: 10;
-    object-fit: cover;
-    justify-self: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.hero-slider .slider-nav {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-    color: var(--text-color);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.hero-slider .slider-nav:hover { 
-    background: white; 
-    transform: translateY(-50%) scale(1.1);
-}
-
-.hero-slider .slider-nav.prev { left: 0px; }
-.hero-slider .slider-nav.next { right: 0px; }
-
-.sect1{
-    margin-top: 7rem;
-}
-@media (max-width: 768px){
-.hero-slider .slider-nav.prev { left: -100px; }
-.hero-slider .slider-nav.next { right: -100px; }
-}
-.headline{
-    margin-top: 0rem;
-    margin-bottom: 0px;
-}
-.headline-txt{
-    margin-top: 0rem;
-}
-        /* Responsive adjustments for pricing cards */
-        @media (max-width: 1200px) {
-            .pricing-card.gold {
-                transform: scale(1); /* Disable scaling on smaller screens to prevent layout issues */
-            }
-        }
-        @media (max-width: 768px) {
-            .img-circle{
-                z-index: 5;
-                position: relative;
-                opacity: 1;
-                top: 0;
-                margin: 0 auto;
-                left: 0;
-            }
-            .pricing-section { padding: 4rem 1rem; }
-            .pricing-section h2 { font-size: 2.2rem; }
-        }
-    </style>
 </head>
 <body>
         <div class="navbar">
@@ -483,75 +107,74 @@ Your contribution fuels our mission and empowers individuals on their journey to
 
 <section class="pricing-section" id="donation-tiers">
 
-  <div class="pricing-container">
-        <!-- Tier 1: Community Ally -->
-        <div class="pricing-card bronze">
-            <h3 class="tier-name">Friend/Supporter Partner</h3>
-            <div class="price">N5,000 <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Provides educational materials for one person.</li>
-                <li><i class="fas fa-check-circle"></i>Supports our digital awareness campaigns.</li>
-                <li><i class="fas fa-check-circle"></i>Quarterly impact newsletter.</li>
-            </ul>
-            <button type="button" onclick="makePayment(5000, 'YOUR_PLAN_ID_1')" class="cta-btn">Donate Now</button>
-        </div>
-        <!-- Tier 2: Hope Builder -->
-        <div class="pricing-card silver">
-            <h3 class="tier-name">Bronze</h3>
-            <div class="price">N10,000 <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Funds a seat in a virtual support group.</li>
-                <li><i class="fas fa-check-circle"></i>Helps maintain our 24/7 support helpline.</li>
-                <li><i class="fas fa-check-circle"></i>Includes all Ally benefits.</li>
-            </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousebronze" class="cta-btn">Build Hope</a>
-        </div>
-        <!-- Tier 3: Wellness Champion (Featured) -->
-        <div class="pricing-card gold">
-            <div class="featured-badge">Most Popular</div>
-            <h3 class="tier-name">Silver</h3>
-            <div class="price">N20,000 <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Sponsors a full counseling session for one person.</li>
-                <li><i class="fas fa-check-circle"></i>Supports a local community wellness workshop.</li>
-                <li><i class="fas fa-check-circle"></i>Includes all Hope Builder benefits.</li>
-            </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousesilver" class="cta-btn">Be a Champion</a>
-        </div>
-        <!-- Tier 4: Healing Guardian -->
-        <div class="pricing-card platinum">
-            <h3 class="tier-name">Gold</h3>
-            <div class="price">N50,000 <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Funds a complete short-term therapy plan.</li>
-                <li><i class="fas fa-check-circle"></i>Enables training for one volunteer facilitator.</li>
-                <li><i class="fas fa-check-circle"></i>Includes all Champion benefits.</li>
-            </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousegold" class="cta-btn">Become a Guardian</a>
-        </div>
-        <!-- Tier 5: Visionary Leader -->
-        <div class="pricing-card diamond">
-            <h3 class="tier-name">Platinum/Diamond Partner</h3>
-            <div class="price">N100,000+ <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Powers a long-term strategic initiative.</li>
-                <li><i class="fas fa-check-circle"></i>Launches a new support program in a community.</li>
-                <li><i class="fas fa-check-circle"></i>Personalized annual impact report.</li>
-            </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousediamond" class="cta-btn">Lead the Way</a>
-        </div>
-        <!-- Tier 6: Legacy Patron -->
-        <div class="pricing-card legacy">
-            <h3 class="tier-name">Legacy Patron</h3>
-            <div class="price">N200,000+ <span>/month</span></div>
-            <ul>
-                <li><i class="fas fa-check-circle"></i>Underwrites a major community program.</li>
-                <li><i class="fas fa-check-circle"></i>Sustains core operations for a full quarter.</li>
-                <li><i class="fas fa-check-circle"></i>Named recognition in our annual report.</li>
-            </ul>
-            <a href="https://flutterwave.com/pay/missionsafehouselegacy?" class="cta-btn">Leave a Legacy</a>
-        </div>
+<div class="pricing-container">
+    <div class="pricing-card bronze">
+        <h3 class="tier-name">Friend/Supporter Partner</h3>
+        <div class="price">N5,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Provides educational materials for one person.</li>
+            <li><i class="fas fa-check-circle"></i>Supports our digital awareness campaigns.</li>
+            <li><i class="fas fa-check-circle"></i>Quarterly impact newsletter.</li>
+        </ul>
+        <button type="button" onclick="makePayment(5000, '151748')" class="cta-btn">Donate Now</button>
     </div>
+
+    <div class="pricing-card silver">
+        <h3 class="tier-name">Bronze</h3>
+        <div class="price">N10,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Funds a seat in a virtual support group.</li>
+            <li><i class="fas fa-check-circle"></i>Helps maintain our 24/7 support helpline.</li>
+            <li><i class="fas fa-check-circle"></i>Includes all Ally benefits.</li>
+        </ul>
+        <button type="button" onclick="makePayment(10000, '151749')" class="cta-btn">Donate Now</button>
+    </div>
+
+    <div class="pricing-card gold">
+        <div class="featured-badge">Most Popular</div>
+        <h3 class="tier-name">Silver</h3>
+        <div class="price">N20,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Sponsors a full counseling session for one person.</li>
+            <li><i class="fas fa-check-circle"></i>Supports a local community wellness workshop.</li>
+            <li><i class="fas fa-check-circle"></i>Includes all Hope Builder benefits.</li>
+        </ul>
+        <button type="button" onclick="makePayment(20000, '151750')" class="cta-btn">Donate Now</button>
+    </div>
+
+    <div class="pricing-card platinum">
+        <h3 class="tier-name">Gold</h3>
+        <div class="price">N50,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Funds a complete short-term therapy plan.</li>
+            <li><i class="fas fa-check-circle"></i>Enables training for one volunteer facilitator.</li>
+            <li><i class="fas fa-check-circle"></i>Includes all Champion benefits.</li>
+        </ul>
+        <button type="button" onclick="makePayment(50000, '151751')" class="cta-btn">Donate Now</button>
+    </div>
+
+    <div class="pricing-card diamond">
+        <h3 class="tier-name">Platinum/Diamond Partner</h3>
+        <div class="price">N100,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Powers a long-term strategic initiative.</li>
+            <li><i class="fas fa-check-circle"></i>Launches a new support program in a community.</li>
+            <li><i class="fas fa-check-circle"></i>Personalized annual impact report.</li>
+        </ul>
+        <button type="button" onclick="makePayment(100000, '151752')" class="cta-btn">Donate Now</button>
+    </div>
+
+    <div class="pricing-card legacy">
+        <h3 class="tier-name">Legacy Patron</h3>
+        <div class="price">N200,000 <span>/month</span></div>
+        <ul>
+            <li><i class="fas fa-check-circle"></i>Underwrites a major community program.</li>
+            <li><i class="fas fa-check-circle"></i>Sustains core operations for a full quarter.</li>
+            <li><i class="fas fa-check-circle"></i>Named recognition in our annual report.</li>
+        </ul>
+        <button type="button" onclick="makePayment(200000, '151753')" class="cta-btn">Donate Now</button>
+    </div>
+</div>
 </section>
 
 
@@ -903,53 +526,38 @@ gsap.registerPlugin(ScrollTrigger);
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('donation-modal');
-        const cancelBtn = document.getElementById('modal-cancel-btn');
-        const proceedBtn = document.getElementById('modal-proceed-btn');
-        const tierNameEl = document.getElementById('modal-tier-name');
-        const tierAmountEl = document.getElementById('modal-tier-amount');
-        let targetUrl = '';
+function makePayment(amount, planId) {
+    // This creates a unique ID for every single click to stop the 400 errors
+    const txRef = "DHCEF-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
 
-        // Select all CTA buttons in pricing cards
-        const ctaButtons = document.querySelectorAll('.pricing-card .cta-btn');
-
-        ctaButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                targetUrl = btn.getAttribute('href');
-
-                // Extract info from the card
-                const card = btn.closest('.pricing-card');
-                const tierName = card.querySelector('.tier-name').textContent;
-                // Get price text, ignoring the span for /month
-                const priceEl = card.querySelector('.price');
-                const priceText = priceEl.childNodes[0].textContent.trim();
-
-                tierNameEl.textContent = tierName;
-                tierAmountEl.textContent = priceText;
-
-                modal.classList.add('active');
-            });
-        });
-
-        proceedBtn.addEventListener('click', () => {
-            if (targetUrl) window.location.href = targetUrl;
-            modal.classList.remove('active');
-        });
-
-        cancelBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.remove('active');
-        });
+    FlutterwaveCheckout({
+        public_key: "FLWPUBK-d74f32e40caa5497ac12462d41a60c73-X", 
+        tx_ref: txRef,
+        amount: amount,
+        currency: "NGN",
+        payment_options: "card", 
+        payment_plan: planId,    
+        customer: {
+            email: "komumech@gmail.com", 
+            phone_number: "08060099121",
+            name: "DHCEF Partner",
+        },
+        customizations: {
+            title: "DHCEF Foundation",
+            description: "Monthly Partnership Donation",
+        },
+        callback: function (data) {
+            console.log("Payment status:", data.status);
+            if (data.status === "successful") {
+                window.location.href = "index.html";
+            }
+        },
+        onclose: function() {
+            console.log("Modal closed by user.");
+        }
     });
+}
 </script>
-
-
-
 
 </body>
 </html>
