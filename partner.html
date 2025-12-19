@@ -466,6 +466,21 @@ Your contribution fuels our mission and empowers individuals on their journey to
     .partner-intro-section ul li i { color: var(--primary-color); margin-right: 15px; margin-top: 5px; }
 </style>
 
+<!-- One-Time Donation Section -->
+<section class="one-time-donation">
+    <div class="one-time-wrapper">
+        <div class="text-content">
+            <h3>Make a One-Time Donation</h3>
+            <p>Not ready for a monthly commitment? You can still make a significant impact. Your one-time gift helps us provide immediate support to those in need.</p>
+        </div>
+        <div class="action-content">
+            <a href="https://flutterwave.com/donate/0bsutkzqdwqe" class="donate-btn-one-time">Donate Once</a>
+        </div>
+    </div>
+</section>
+
+
+
 <section class="pricing-section" id="donation-tiers">
 
   <div class="pricing-container">
@@ -539,6 +554,60 @@ Your contribution fuels our mission and empowers individuals on their journey to
     </div>
 </section>
 
+
+
+<style>
+    .one-time-donation {
+        padding: 4rem 2rem 2rem 2rem;
+        background-color: var(--neutral-background);
+        display: flex;
+        margin-bottom: -3rem;
+        justify-content: center;
+    }
+    .one-time-wrapper {
+        max-width: 1000px;
+        width: 100%;
+        background: #fff;
+        padding: 3rem;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border-left: 5px solid var(--primary-color, #4CAF50);
+    }
+    .one-time-wrapper .text-content { flex: 1; }
+    .one-time-wrapper h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--text-color); }
+    .one-time-wrapper p { font-size: 1.1rem; color: #555; line-height: 1.6; }
+    .donate-btn-one-time {
+        background-color: var(--text-color, #333);
+        color: #fff;
+        padding: 16px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .donate-btn-one-time:hover {
+        background-color: var(--primary-color, #4CAF50);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 768px) {
+        .one-time-wrapper { flex-direction: column; text-align: center; padding: 2rem; gap: 2rem; }
+        .one-time-wrapper .text-content { text-align: center; }
+        .donate-btn-one-time { 
+            width: 80%; 
+            display: block; 
+            text-align: center; 
+            justify-self: center;
+        }
+    }
+</style>
 
 
 
