@@ -296,10 +296,8 @@
     </div>
    <div class="sect1">
         <div class="headline">
-            <form action="https://formspree.io/f/xnjaqpnk" method="POST" class="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/xnjaqpnk" method="POST" class="contact-form">
                 <h2>Contact Us</h2>
-                <!-- Redirect to the home page after submission -->
-                <input type="hidden" name="_next" value="https://missionsafehouse.vercel.app/index.html">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="first-name">Name</label>
@@ -381,54 +379,6 @@
             elementsToAnimate.forEach(element => {
                 observer.observe(element);
             });
-
-            // Automatic image slider for .sect2-img
-            const imageElement = document.querySelector('.sect2-img .img2');
-            if (imageElement) {
-                // Add the paths to your images here
-                const images = [
-                    'images/img7.jpg',
-                    'images/img6.jpg', // Example: replace with your image
-                    'images/img4.jpg'  // Example: replace with your image
-                ];
-                let currentImageIndex = 0;
-
-                setInterval(() => {
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    // Add a fade effect for a smoother transition
-                    imageElement.style.opacity = 0;
-                    setTimeout(() => {
-                        imageElement.src = images[currentImageIndex];
-                        imageElement.style.opacity = 1;
-                    }, 500); // This timeout should be less than the interval
-                }, 7000); // Change image every 7 seconds
-            }
-        });
-
-        // "What We Do" Slider Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.what-we-do-slider .slide');
-            const nextBtn = document.querySelector('.slider-nav.next');
-            const prevBtn = document.querySelector('.slider-nav.prev');
-            let currentSlide = 0;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active-slide', i === index);
-                });
-            }
-
-            if (nextBtn && prevBtn) {
-                nextBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    showSlide(currentSlide);
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    showSlide(currentSlide);
-                });
-            }
         });
 
         // Navbar scroll shadow
@@ -456,114 +406,53 @@
                 hamburgerIcon.classList.replace('fa-times', 'fa-bars');
             }
         });
+
+        // --- AJAX Form Submission ---
+        const form = document.getElementById("contact-form");
+        if (form) {
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault();
+                const button = form.querySelector("button");
+                const originalText = button.innerText;
+                
+                // Visual feedback
+                button.innerText = "Sending...";
+                button.disabled = true;
+                button.style.opacity = "0.7";
+
+                const data = new FormData(event.target);
+                
+                try {
+                    const response = await fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        button.innerText = "Message Sent!";
+                        button.style.backgroundColor = "#4CAF50"; // Green
+                        button.style.color = "white";
+                        form.reset();
+                        // Redirect to home page after 2 seconds
+                        setTimeout(() => {
+                            window.location.href = "index.html";
+                        }, 2000);
+                    } else {
+                        const result = await response.json();
+                        alert("Error: " + (result.errors ? result.errors.map(e => e.message).join(", ") : "Oops! There was a problem."));
+                        button.innerText = originalText;
+                        button.disabled = false;
+                        button.style.opacity = "1";
+                    }
+                } catch (error) {
+                    alert("Error: Could not send message. Please check your connection.");
+                    button.innerText = originalText;
+                    button.disabled = false;
+                    button.style.opacity = "1";
+                }
+            });
+        }
     </script>
-
-
-<script>
-
-
-gsap.registerPlugin(ScrollTrigger);
-        // --- Meet the Team Carousel and Spotlight (Enhanced for Center Spotlight) ---
-    const teamCarousel = document.querySelector(".meet-carousel");
-    const teamMembers = document.querySelectorAll('.team-member');
-    const spotlightNameElement = document.getElementById('spotlight-name');
-    const spotlightRoleElement = document.getElementById('spotlight-role');
-    const spotlightBioElement = document.querySelector('.spotlight-info .bio');
-
-    // Function to update the spotlight text with fade effect
-    function updateTeamSpotlight(memberElement, initialLoad = false) {
-        if (!spotlightNameElement || !spotlightRoleElement || !spotlightBioElement || !memberElement) return;
-
-        const name = memberElement.dataset.name;
-        const role = memberElement.dataset.role;
-        const bio = memberElement.dataset.bio;
-
-        if (initialLoad) {
-            // For initial load, just set content and fade in
-            spotlightNameElement.textContent = name;
-            spotlightRoleElement.textContent = role;
-            spotlightBioElement.textContent = bio;
-            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.5 });
-            console.log("Initial Spotlight Updated:", name);
-        } else {
-            // For subsequent changes, fade out, update, then fade in
-            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], {
-                opacity: 0,
-                duration: 0.15,
-                onComplete: () => {
-                    spotlightNameElement.textContent = name;
-                    spotlightRoleElement.textContent = role;
-                    spotlightBioElement.textContent = bio;
-                    gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.25 });
-                    console.log("Spotlight Updated:", name);
-                }
-            });
-        }
-    }
-
-    // Function to find the center-most team member and update spotlight
-    let lastCenteredMember = null;
-    if (teamCarousel && teamMembers.length > 0) {
-        function updateCenterSpotlight() {
-            const carouselRect = teamCarousel.getBoundingClientRect();
-            // Get the center point of the visible carousel area relative to the viewport
-            const carouselViewportCenter = carouselRect.left + carouselRect.width / 2;
-
-            let closestMember = null;
-            let minDistance = Infinity;
-
-            teamMembers.forEach(member => {
-                const memberRect = member.getBoundingClientRect();
-                // Get the center point of the member relative to the viewport
-                const memberViewportCenter = memberRect.left + memberRect.width / 2;
-                const distance = Math.abs(carouselViewportCenter - memberViewportCenter);
-
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestMember = member;
-                }
-            });
-
-            if (closestMember && closestMember !== lastCenteredMember) {
-                teamMembers.forEach(m => m.classList.remove('active'));
-                closestMember.classList.add('active');
-                updateTeamSpotlight(closestMember);
-                lastCenteredMember = closestMember;
-            }
-        }
-
-        // Initial setup for the spotlight
-        // It's crucial that one member starts with 'active' class in HTML
-        const initialActiveMember = document.querySelector('.team-member.active');
-        if (initialActiveMember) {
-            updateTeamSpotlight(initialActiveMember, true);
-        } else if (teamMembers.length > 0) {
-            // If no active class is set, default to the first member
-            teamMembers[0].classList.add('active');
-            updateTeamSpotlight(teamMembers[0], true);
-        }
-
-        // Listen for scroll events on the carousel to update the spotlight
-        let scrollTimeout;
-        teamCarousel.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(updateCenterSpotlight, 50); // Debounce
-        });
-
-        // Add click listeners to team member photos to center them and update spotlight
-        teamMembers.forEach(member => {
-            member.addEventListener('click', () => {
-                // Calculate scroll position to bring clicked member to center
-                const scrollOffset = member.offsetLeft + (member.offsetWidth / 2) - (teamCarousel.clientWidth / 2);
-                teamCarousel.scrollTo({ left: scrollOffset, behavior: "smooth" });
-
-                // Update spotlight immediately after click, but also allow scroll event to finalize
-                // Add a small delay for the scroll animation to complete before updating
-                setTimeout(updateCenterSpotlight, 300); // Give scroll some time
-            });
-        });
-    }
-
-</script>
 </body>
 </html>
