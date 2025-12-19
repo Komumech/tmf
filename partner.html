@@ -244,7 +244,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
             </div>
             <div class="footer-col footer-links">
                 <ul>
-                    <li><a href="index.html">Home.</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="#">What We Do</a></li>
                     <li><a href="partner.html">Support/Donate</a></li>
                     <li><a href="#">Privacy Policy</a></li>
@@ -571,9 +571,9 @@ gsap.registerPlugin(ScrollTrigger);
     });
 </script>
 <script>
-function makePayment(amount, planId) {
-    // 1. Force a unique reference to clear previous session errors
-    const txRef = "DHCEF-LIVE-" + Date.now();
+    function makePayment(amount, planId) {
+    // Unique ID to prevent API caching/duplicate errors
+    const txRef = "DHCEF-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
 
     FlutterwaveCheckout({
         public_key: "FLWPUBK-d74f32e40caa5497ac12462d41a60c73-X", 
@@ -583,7 +583,6 @@ function makePayment(amount, planId) {
         payment_options: "card", 
         payment_plan: planId,    
         customer: {
-            // TIP: Try changing this to your personal email once to see if the 400 error disappears
             email: "komumech@gmail.com", 
             phone_number: "08060099121",
             name: "DHCEF Partner",
@@ -591,16 +590,12 @@ function makePayment(amount, planId) {
         customizations: {
             title: "DHCEF Foundation",
             description: "Monthly Partnership Donation",
-            // Use a reliable logo link or leave blank to avoid the SSL error
-            logo: "https://komuhost.vercel.app/logo1.png", 
+            // Removed logo temporarily to prevent the ERR_CERT error
         },
         callback: function (data) {
             if (data.status === "successful") {
                 window.location.href = "index.html";
             }
-        },
-        onclose: function() {
-            console.log("Modal closed");
         }
     });
 }
