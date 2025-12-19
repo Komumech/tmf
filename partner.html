@@ -526,53 +526,8 @@ gsap.registerPlugin(ScrollTrigger);
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('donation-modal');
-        const cancelBtn = document.getElementById('modal-cancel-btn');
-        const proceedBtn = document.getElementById('modal-proceed-btn');
-        const tierNameEl = document.getElementById('modal-tier-name');
-        const tierAmountEl = document.getElementById('modal-tier-amount');
-        let targetUrl = '';
-
-        // Select all CTA buttons in pricing cards
-        const ctaButtons = document.querySelectorAll('.pricing-card .cta-btn');
-
-        ctaButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                targetUrl = btn.getAttribute('href');
-
-                // Extract info from the card
-                const card = btn.closest('.pricing-card');
-                const tierName = card.querySelector('.tier-name').textContent;
-                // Get price text, ignoring the span for /month
-                const priceEl = card.querySelector('.price');
-                const priceText = priceEl.childNodes[0].textContent.trim();
-
-                tierNameEl.textContent = tierName;
-                tierAmountEl.textContent = priceText;
-
-                modal.classList.add('active');
-            });
-        });
-
-        proceedBtn.addEventListener('click', () => {
-            if (targetUrl) window.location.href = targetUrl;
-            modal.classList.remove('active');
-        });
-
-        cancelBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.remove('active');
-        });
-    });
-</script>
-<script>
-    function makePayment(amount, planId) {
-    // Unique ID to prevent API caching/duplicate errors
+function makePayment(amount, planId) {
+    // This creates a unique ID for every single click to stop the 400 errors
     const txRef = "DHCEF-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
 
     FlutterwaveCheckout({
@@ -590,12 +545,15 @@ gsap.registerPlugin(ScrollTrigger);
         customizations: {
             title: "DHCEF Foundation",
             description: "Monthly Partnership Donation",
-            // Removed logo temporarily to prevent the ERR_CERT error
         },
         callback: function (data) {
+            console.log("Payment status:", data.status);
             if (data.status === "successful") {
                 window.location.href = "index.html";
             }
+        },
+        onclose: function() {
+            console.log("Modal closed by user.");
         }
     });
 }
