@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -493,7 +494,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Supports our digital awareness campaigns.</li>
                 <li><i class="fas fa-check-circle"></i>Quarterly impact newsletter.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehouse" class="cta-btn">Donate Now</a>
+            <button type="button" onclick="makePayment(5000, '151748')" class="cta-btn">Donate Now</button>
         </div>
         <!-- Tier 2: Hope Builder -->
         <div class="pricing-card silver">
@@ -504,7 +505,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Helps maintain our 24/7 support helpline.</li>
                 <li><i class="fas fa-check-circle"></i>Includes all Ally benefits.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousebronze" class="cta-btn">Build Hope</a>
+            <button type="button" onclick="makePayment(10000, '151747')" class="cta-btn">Donate Now</button>
         </div>
         <!-- Tier 3: Wellness Champion (Featured) -->
         <div class="pricing-card gold">
@@ -516,7 +517,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Supports a local community wellness workshop.</li>
                 <li><i class="fas fa-check-circle"></i>Includes all Hope Builder benefits.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousesilver" class="cta-btn">Be a Champion</a>
+            <button type="button" onclick="makePayment(10000, '151750')" class="cta-btn">Donate Now</button>
         </div>
         <!-- Tier 4: Healing Guardian -->
         <div class="pricing-card platinum">
@@ -527,7 +528,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Enables training for one volunteer facilitator.</li>
                 <li><i class="fas fa-check-circle"></i>Includes all Champion benefits.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousegold" class="cta-btn">Become a Guardian</a>
+             <button type="button" onclick="makePayment(10000, '151751')" class="cta-btn">Donate Now</button>
         </div>
         <!-- Tier 5: Visionary Leader -->
         <div class="pricing-card diamond">
@@ -538,7 +539,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Launches a new support program in a community.</li>
                 <li><i class="fas fa-check-circle"></i>Personalized annual impact report.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehousediamond" class="cta-btn">Lead the Way</a>
+            <button type="button" onclick="makePayment(10000, '151752')" class="cta-btn">Donate Now</button>
         </div>
         <!-- Tier 6: Legacy Patron -->
         <div class="pricing-card legacy">
@@ -549,7 +550,7 @@ Your contribution fuels our mission and empowers individuals on their journey to
                 <li><i class="fas fa-check-circle"></i>Sustains core operations for a full quarter.</li>
                 <li><i class="fas fa-check-circle"></i>Named recognition in our annual report.</li>
             </ul>
-            <a href="https://flutterwave.com/pay/missionsafehouselegacy?" class="cta-btn">Leave a Legacy</a>
+             <button type="button" onclick="makePayment(10000, '151753')" class="cta-btn">Donate Now</button>
         </div>
     </div>
 </section>
@@ -947,5 +948,42 @@ gsap.registerPlugin(ScrollTrigger);
         });
     });
 </script>
+
+
+
+<script>
+function makePayment(amount, planId) {
+    // This generates a unique reference so you don't get the "Length is 0" error
+    const transactionRef = "TMF-" + Math.floor((Math.random() * 1000000000) + 1);
+
+    FlutterwaveCheckout({
+        public_key: "FLWPUBK-d74f32e40caa5497ac12462d41a60c73-X", // REPLACE WITH YOUR PUBLIC KEY
+        tx_ref: transactionRef,            // This is now > 4 characters
+        amount: amount,
+        currency: "NGN",
+        payment_plan: planId,              // The Subscription Plan ID from Dashboard
+        customer: {
+            email: "donor@example.com",    // You can pull this from an input field
+            phone_number: "08012345678",
+            name: "TMF Supporter",
+        },
+        customizations: {
+            title: "TMF Foundation",
+            description: "Monthly Partnership Donation",
+            logo: "https://your-site.com/images/logo.png",
+        },
+        callback: function (data) {
+            console.log("Payment successful", data);
+            // Redirect to a success page
+            window.location.href = "success.html";
+        },
+        onclose: function() {
+            console.log("Payment modal closed");
+        }
+    });
+}
+</script>
+
+
 </body>
 </html>
